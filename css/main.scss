@@ -1,0 +1,142 @@
+$color-primary: #901C1C;
+$color-secondary: #D3573C;
+$color-grey: #525252;
+$color-lightgrey: #FAFAFA;
+
+
+body {
+    margin: 0;
+    max-width:100%;
+    font-family: 'DM Sans', sans-serif;
+}
+
+// .wrapper{
+// }
+
+header{
+    width: 70%;
+    height: 18vh;
+    display: flex;
+    align-items: center;
+    
+    .logo{
+        flex: 10%;
+    }
+
+    nav{
+        flex: 60%;
+    }
+    
+    .linkMain{
+        height: 100px;
+        position: absolute;
+        top: -50px;
+        left: 45%;
+        transition: top 0.5s;
+        
+        a {
+            color: black;
+            text-decoration: none;
+            padding: 0.2em 0.4em;
+            border-radius: 5% / 25%;
+            font-weight: 700;
+            background-color: $color-secondary;
+        }
+
+        &:hover{
+            top: 8px;
+        }
+    }
+}
+
+main{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+h1{
+    position: absolute;
+    top: 0;
+    right: 3%;
+    margin: 3% 0;
+    color: $color-primary;
+    font-size: 2.5em;
+}
+
+// component Tags
+.tags{
+    display: flex;
+    justify-content: space-evenly;
+    &__border {
+        text-decoration: none;
+        border-radius: 2.5vh;
+        border: 0.1em solid lightgray;
+        margin: 0 0.3vw;
+        padding: 0.1vh;
+
+        &__text{
+            display: inline;
+            list-style-type: none;
+            padding: 5px 3px;
+            color: $color-primary;
+        }
+    }
+}
+
+// components Main
+.cards{
+    display: flex;
+    flex-flow: row wrap;
+
+    .photographersCard {
+        flex: 30%;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+
+        &__link{
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            text-decoration: none;
+            &__container {
+                width: 200px;
+                height: 200px;
+                overflow: hidden;
+                border-radius: 50%;
+    
+                &__img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }    
+            &__name{
+                color: $color-secondary;
+                font-weight: 400;
+                font-size: 2.5em;
+                margin: 0;
+            }
+        }
+
+        &__loca{
+            color: $color-primary;
+            font-size: 1em;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        &__tagline{
+            color: black;
+            margin: 0.5em 0;
+        }
+
+        &__price{
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            color: black;
+            font-size: 0.3;
+            margin: 0;
+        }
+    }
+}
