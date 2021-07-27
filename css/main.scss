@@ -69,6 +69,7 @@ h1{
     display: flex;
     justify-content: space-evenly;
     &__border {
+        cursor: pointer;
         text-decoration: none;
         border-radius: 2.5vh;
         border: 0.1em solid lightgray;
@@ -87,17 +88,20 @@ h1{
 .banner{
     width: 90%;
     background-color: $color-lightgrey;
-    .photographersCard {
+    .photographerCard {
         flex: 30%;
         display: flex;
         flex-flow: column;
         z-index: 2;
-
         &__link{
-            width: 100%;
             display: flex;
-            flex-flow: row-reverse;
-            justify-content: space-evenly;removeCardsContent(eventPhotographer);
+            flex-flow: column;
+            align-items: center;
+            text-decoration: none;
+            &__container {
+                width: 200px;
+                height: 200px;
+                overflow: hidden;
                 border-radius: 50%;
     
                 &__img {
@@ -137,7 +141,7 @@ h1{
     display: flex;
     flex-flow: row wrap;
 
-    .photographersCard {
+    .photographerCard {
         flex: 30%;
         display: flex;
         flex-flow: column;
@@ -145,6 +149,7 @@ h1{
         z-index: 2;
 
         &__link{
+            cursor: pointer;
             display: flex;
             flex-flow: column;
             align-items: center;

@@ -1,9 +1,7 @@
 const main = document.querySelector('main');
 const nav = document.querySelector('nav');
-
-// import classes
-import {Photographer, tagList} from "./modules/Photographer.js";
-import {Medias} from "./modules/Medias.js";
+const cards = document.querySelector('.cards');
+let tagList = [];
 
 // request JSON
 
@@ -21,21 +19,30 @@ request.onload = function(){
     const photographers = fullJson['photographers'];
     const medias = fullJson['media'];
     populatePhotographers(photographers);
-    getMedias(medias);
-    
+    console.log(photographers);
+    createPersonalPage(photographers, medias);
 }
 
 // main page
+
 // populate PhotographerCards
 function populatePhotographers(photographers){
-
     // create card for each
     for(const index in photographers){
+        
         let photograph = photographers[index];    
         let newPhotographer = new Photographer(photograph.name, photograph.id, photograph.city, photograph.country, photograph.tags, photograph.tagline, photograph.price, photograph.portrait);
         newPhotographer.createCard();
-    }
+        
+        let indexTags = photographers[index].tags;
 
+        // append to tabList
+        for(let i = 0; i < indexTags.length; i++){
+            if (!tagList.includes(indexTags[i])){
+                tagList.push(indexTags[i]);
+            } 
+        }
+    }
     //addTagsinNav 
     addTagsNav(tagList);
 
@@ -62,76 +69,53 @@ function addTagsNav(tagList){
 
         tagsContainer.appendChild(tagsBorder);
     }
-    
     navTag.appendChild(tagsContainer);
 }
 
-
-// photographer page
-// garder jusqu'au click
-function getMedias(medias){
+function removeCardsContent(){
     
-    let photoCard = document.querySelectorAll('.photographersCard');
-    
-    for(let i = 0; i < photoCard.length; i++){
-        // event listener
-    photoCard[i].addEventListener('click', (event, medias) => {
-        event.stopPropagation();
-        let eventPhotographer = photoCard[i];
-        console.log(eventPhotographer);
-
-        compareIds(eventPhotographer);
-    });
-}
-
-    function compareIds(eventPhotographer){
-
-        removeCardsContent(eventPhotographer);
-        
-        let eventId = eventPhotographer.value;
-        console.log(eventId);
-        let eventName = eventPhotographer.id;
-        let eventNameSplit = eventName.split(' ');
-        let eventFirstname = eventNameSplit[0];
-        console.log(eventFirstname);
-        // boucle pour medias
-        for(let i = 0; i < medias.length; i++){
-            let media = medias[i];
-            let mediaPhotographererId = medias[i].photographerId;
-
-            if(mediaPhotographererId == eventId){
-                let newMedias = new Medias(media.date, media.id, media.image, media.video,media.likes, media.photographerId, media.price, media.tags, media.title);
-                console.log(newMedias);
-                newMedias.createCard(eventFirstname);
-            }
-        }
-    }
-
-}
-
-function removeCardsContent(eventPhotographer){
-
-    while (main.firstChild) {
-        main.removeChild(main.lastChild);
+    while (cards.firstChild) {
+        cards.removeChild(cards.lastChild);
     }
     
     while (nav.firstChild) {
         nav.removeChild(nav.lastChild);
-    }
-
-    let cards = document.createElement('div');
-    cards.className = 'cards';
-    createPersonalPage(eventPhotographer);
+    }   
 }
 
-function createPersonalPage(eventPhotographer){
+// photographer page
+function createPersonalPage(photographers, medias){
+    let photographerCard = document.querySelectorAll('.photographerCard');
     
-    // create banner
-    let banner = document.createElement('div');
-    banner.className = 'banner';
-    main.appendChild(banner);
-    
-    // get n append personal Banner
-    let personalBanner = eventPhotographer;
-    banner.appendChild(personalBanner); 
+    for(let i = 0; i < photographerCard.length; i++){
+        // event listener
+        photographerCard[i].addEventListener('click', (event) => {
+            event.stopPropagation();
+            removeCardsContent();
+            
+            let eventPhotographer = photographerCard[i];
+            console.log(eventPhotographer);
+            console.log(photographers);
+            let eventId = eventPhotographer.id;
+            console.log(eventId);
+            
+            let eventName = eventPhotographer.getAttribute('name');
+            console.log(eventName);
+            
+            let eventNameSplit = eventName.split(' ');
+            let eventFirstname = eventNameSplit[0];
+            console.log(eventFirstname);
+            
+            // boucle pour medias
+            for(let i = 0; i < medias.length; i++){
+                let media = medias[i];
+                let mediaPhotographererId = medias[i].photographerId;
+                if(mediaPhotographererId == eventId){
+                    let newMedias = new Medias(media.date, media.id, media.image, media.video,media.likes, media.photographerId, media.price, media.tags, media.title);
+                    console.log(newMedias);
+                    newMedias.createCard(eventFirstname);
+                }
+            }
+        });
+    }
 }

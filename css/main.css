@@ -81,6 +81,7 @@ h1 {
 }
 
 .tags__border {
+  cursor: pointer;
   text-decoration: none;
   border-radius: 2.5vh;
   border: 0.1em solid lightgray;
@@ -100,7 +101,7 @@ h1 {
   background-color: #FAFAFA;
 }
 
-.banner .photographersCard {
+.banner .photographerCard {
   -webkit-box-flex: 30%;
       -ms-flex: 30%;
           flex: 30%;
@@ -114,55 +115,54 @@ h1 {
   z-index: 2;
 }
 
-.banner .photographersCard__link {
-  width: 100%;
+.banner .photographerCard__link {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-flow: row-reverse;
-          flex-flow: row-reverse;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-decoration: none;
 }
 
-.banner .photographersCard__link__container {
+.banner .photographerCard__link__container {
   width: 200px;
   height: 200px;
   overflow: hidden;
   border-radius: 50%;
 }
 
-.banner .photographersCard__link__container__img {
+.banner .photographerCard__link__container__img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.banner .photographersCard__link__name {
+.banner .photographerCard__link__name {
   color: #D3573C;
   font-weight: 400;
   font-size: 2.5em;
   margin: 0;
 }
 
-.banner .photographersCard__loca {
+.banner .photographerCard__loca {
   color: #901C1C;
   font-size: 1em;
   font-weight: 500;
   margin: 0;
 }
 
-.banner .photographersCard__tagline {
+.banner .photographerCard__tagline {
   color: black;
   margin: 0.5em 0;
 }
 
-.banner .photographersCard__price {
+.banner .photographerCard__price {
   display: none;
 }
 
@@ -176,7 +176,7 @@ h1 {
           flex-flow: row wrap;
 }
 
-.cards .photographersCard {
+.cards .photographerCard {
   -webkit-box-flex: 30%;
       -ms-flex: 30%;
           flex: 30%;
@@ -193,7 +193,8 @@ h1 {
   z-index: 2;
 }
 
-.cards .photographersCard__link {
+.cards .photographerCard__link {
+  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -207,40 +208,40 @@ h1 {
   text-decoration: none;
 }
 
-.cards .photographersCard__link__container {
+.cards .photographerCard__link__container {
   width: 200px;
   height: 200px;
   overflow: hidden;
   border-radius: 50%;
 }
 
-.cards .photographersCard__link__container__img {
+.cards .photographerCard__link__container__img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.cards .photographersCard__link__name {
+.cards .photographerCard__link__name {
   color: #D3573C;
   font-weight: 400;
   font-size: 2.5em;
   margin: 0;
 }
 
-.cards .photographersCard__loca {
+.cards .photographerCard__loca {
   color: #901C1C;
   font-size: 1em;
   font-weight: 500;
   margin: 0;
 }
 
-.cards .photographersCard__tagline {
+.cards .photographerCard__tagline {
   color: black;
   margin: 0.5em 0;
 }
 
-.cards .photographersCard__price {
+.cards .photographerCard__price {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: black;
