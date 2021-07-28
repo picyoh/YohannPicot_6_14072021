@@ -1,5 +1,7 @@
-const main = document.querySelector('main');
+const header = document.querySelector('header');
+const logo = document.querySelector('.logo');
 const nav = document.querySelector('nav');
+const main = document.querySelector('main');
 const cards = document.querySelector('.cards');
 let tagList = [];
 
@@ -23,7 +25,7 @@ request.onload = function(){
     createPersonalPage(photographers, medias);
 }
 
-// main page
+// MAIN
 
 // populate PhotographerCards
 function populatePhotographers(photographers){
@@ -50,29 +52,28 @@ function populatePhotographers(photographers){
 
 // create navigation tags
 function addTagsNav(tagList){
-    
-    // get nav
-    let navTag =  document.querySelector('nav');
-    // create ul
-    let tagsContainer = document.createElement('ul');
-    tagsContainer.className = 'tags';
-    for (let i = 0; i < tagList.length; i++){
-        // create Link
-        let tagsBorder = document.createElement('a');
-        tagsBorder.className = 'tags__border';
-        tagsBorder.href='#';
-        // create li
-        let tagLi = document.createElement('li');
-        tagLi.textContent = '#' + tagList[i];
-        tagLi.className = 'tags__border__text';
-        tagsBorder.appendChild(tagLi);
 
-        tagsContainer.appendChild(tagsBorder);
-    }
-    navTag.appendChild(tagsContainer);
+    const tagsInNav = `
+        <ul class="tags">
+        ${tagList.map(tag => `
+        <li class="tags__border">
+            <a class="tags__border__text">#${tag}</a>
+        </li>
+      `).join('')}
+        </ul>
+    `;
+
+    nav.insertAdjacentHTML('afterbegin', tagsInNav);
 }
 
-function removeCardsContent(){
+
+// PERSOPAGE
+
+function removeContent(){
+
+    let title = document.querySelector('h1');
+    main.removeChild(title);
+    header.removeChild(nav);
     
     while (cards.firstChild) {
         cards.removeChild(cards.lastChild);
@@ -83,6 +84,35 @@ function removeCardsContent(){
     }   
 }
 
+function createSelectMenu(){
+
+    let filters = ['Popularité','Date','Titre'];
+    let selectedFilter;
+    
+    (selectedFilter == undefined)
+     ? selectedFilter = 'Titre'
+     : selectedFilter = document.querySelector(".selectedFilter");
+    
+    filters = filters.filter(item => item !== selectedFilter);
+    console.log(filters); 
+
+    const selectMenu = `
+            <div class="selectMenu">
+                <p>Trier par</p>
+                <ul>
+                    <li>
+                        <a class="selectedFilter">${selectedFilter}</a><button></button><i class="fas fa-angle-down"></i>
+                        <ul>
+                            <li><a>${filters[0]}</a></li>
+                            <li><a>${filters[1]}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            `;
+    cards.insertAdjacentHTML('beforebegin', selectMenu);
+}
+
 // photographer page
 function createPersonalPage(photographers, medias){
     let photographerCard = document.querySelectorAll('.photographerCard');
@@ -91,31 +121,49 @@ function createPersonalPage(photographers, medias){
         // event listener
         photographerCard[i].addEventListener('click', (event) => {
             event.stopPropagation();
-            removeCardsContent();
+            removeContent();
             
+            let newBanner = new Photographer(photographers[i].name, photographers[i].id, photographers[i].city, photographers[i].country, photographers[i].tags, photographers[i].tagline, photographers[i].price, photographers[i].portrait); 
+            newBanner.createBanner();
+            
+            // get the clicked photographer
             let eventPhotographer = photographerCard[i];
-            console.log(eventPhotographer);
-            console.log(photographers);
+            console.log(eventPhotographer);        
+            // id
             let eventId = eventPhotographer.id;
-            console.log(eventId);
-            
+            // name
             let eventName = eventPhotographer.getAttribute('name');
-            console.log(eventName);
-            
+            // convert to firstName for photos path
             let eventNameSplit = eventName.split(' ');
-            let eventFirstname = eventNameSplit[0];
-            console.log(eventFirstname);
+            let eventFirstname = eventNameSplit[0].replace('-', ' ');
+            
+            // create selectMenu
+            createSelectMenu();
             
             // boucle pour medias
             for(let i = 0; i < medias.length; i++){
                 let media = medias[i];
-                let mediaPhotographererId = medias[i].photographerId;
-                if(mediaPhotographererId == eventId){
+                let mediaPhotographerId = medias[i].photographerId;
+
+                if(mediaPhotographerId == eventId){
                     let newMedias = new Medias(media.date, media.id, media.image, media.video,media.likes, media.photographerId, media.price, media.tags, media.title);
-                    console.log(newMedias);
+                    // console.log(newMedias);
                     newMedias.createCard(eventFirstname);
                 }
             }
         });
     }
 }
+
+// reload page on logo click
+logo.addEventListener('click', function(){
+    window.location.reload();
+});
+
+// reload when hash is undefined
+window.addEventListener('hashchange', function(e){
+    console.log('coucou');
+    if(window.location.hash == ''){
+        window.location.reload();
+    }
+});

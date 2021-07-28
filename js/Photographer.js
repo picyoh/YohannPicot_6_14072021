@@ -13,7 +13,7 @@ class Photographer{
     createCard(){
         const card = `
         <div id= "${this.id}" class="photographerCard" name="${this.name}">
-            <a class="photographerCard__link">
+            <a class="photographerCard__link" href="#${(this.name).replace(' ', '_')}">
                 <div class="photographerCard__link__container">
                     <img class="photographerCard__link__container__img" 
                     src="/images/FishEye_Photos/Sample_Photos/Photographers ID Photos/${this.portrait}">
@@ -37,7 +37,7 @@ class Photographer{
 
     createBanner(){
         const banner = `
-        <div class="banner>
+        <div class="banner">
             <h1>${this.name}</h1>
             <p class="banner__loca">${this.city}, ${this.country}</p>
             <p class="banner__tagline">${this.tagline}</p>
@@ -49,12 +49,12 @@ class Photographer{
           `).join('')}
             </ul>
             <button class="contactBtn">Contactez-moi</button>
-            <div class="banner__container>
+            <div class="banner__container">
                 <img class="banner__container__img"
                 src="/images/FishEye_Photos/Sample_Photos/Photographers ID Photos/${this.portrait}">
             </div>
         </div>
         `;
-        main.insertAdjacentHTML('beforeend', banner);
+        main.insertAdjacentHTML('afterbegin', banner);
     }
 }

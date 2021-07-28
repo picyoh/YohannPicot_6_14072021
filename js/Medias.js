@@ -12,45 +12,26 @@ class Medias{
     }
 
     createCard(eventFirstname){
-        // if(this.id == eventId){
 
-        // }
         const card = `
         <a class=imgCard>
-        <img class="imgCard__img" src="FishEye_Photos/Sample_Photos/${eventFirstname}/${this.image ?? this.video}">
-            <p class="imgCard__title">${this.title}</p>
-            <p class="imgCard__likes">${this.like}'&#xf004'</p>
+            <div class="imgCard__container">
+            ${(this.image == undefined) 
+                ? `<video class="imgCard__container__img controls preload="metadata">
+                    <source 
+                        src="FishEye_Photos/Sample_Photos/${eventFirstname}/${this.video}#t=0.1" type="video/mp4">
+                    </video>` 
+                : `<img class="imgCard__container__img" 
+                        src="FishEye_Photos/Sample_Photos/${eventFirstname}/${this.image}">`
+            }
+            </div>
+            <span class="imgCard__title">
+                <p>${this.title}</p>
+                <p>${this.likes} <i class="fas fa-heart"></i></p>
+            </span>
         </a>
         `;
-        // // create card
-        // let card = document.createElement('a');
-        // card.className = 'imgCard';
-        // // create Img container
-        // let imgContainer = document.createElement('div');
-        // imgContainer.className = 'imgCard__container'
-        // card.appendChild(imgContainer);
-        // // create Img
-        // let imgTag = document.createElement('img');
-        // imgTag.className = 'imgCard__container__img';
-        // imgTag.src = '/images/FishEye_Photos/Sample_Photos/' + eventFirstname + '/' + this.image;
-        // // video exception
-        // if (this.image == undefined){
-        //     imgTag.src = imgTag.src = '/images/FishEye_Photos/Sample_Photos/' + eventFirstname + '/' + this.video;
-        // }
 
-        // imgContainer.appendChild(imgTag);
-        // // create title
-        // let titleTag = document.createElement('p');
-        // titleTag.className = 'imgCard__title';
-        // titleTag.textContent = this.title;
-        // card.appendChild(titleTag);
-
-        // // create likes
-        // let likesTag  = document.createElement('p');
-        // likesTag.className = 'imgCard__likes';
-        // likesTag.textContent = this.like + '&#xf004';
-        // card.appendChild(likesTag);
-        console.log(card)
-        cards.insertAdjacentHTML('beforeend', card);
+        cards.insertAdjacentHTML('afterbegin', card);
     }
 }

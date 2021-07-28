@@ -19,6 +19,7 @@ header .logo {
   -webkit-box-flex: 10%;
       -ms-flex: 10%;
           flex: 10%;
+  cursor: pointer;
 }
 
 header nav {
@@ -81,8 +82,8 @@ h1 {
 }
 
 .tags__border {
-  cursor: pointer;
-  text-decoration: none;
+  display: inline;
+  list-style-type: none;
   border-radius: 2.5vh;
   border: 0.1em solid lightgray;
   margin: 0 0.3vw;
@@ -90,80 +91,105 @@ h1 {
 }
 
 .tags__border__text {
-  display: inline;
-  list-style-type: none;
+  cursor: pointer;
+  text-decoration: none;
   padding: 5px 3px;
   color: #901C1C;
 }
 
 .banner {
-  width: 90%;
+  width: 100%;
+  max-height: 25vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
   background-color: #FAFAFA;
+  margin: 0 4%;
+  padding: 3%;
 }
 
-.banner .photographerCard {
-  -webkit-box-flex: 30%;
-      -ms-flex: 30%;
-          flex: 30%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  z-index: 2;
+.banner h1 {
+  position: relative;
+  color: #D3573C;
+  margin: 0;
+  right: auto;
 }
 
-.banner .photographerCard__link {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-decoration: none;
+.banner__loca {
+  color: #901C1C;
+  font-size: 1em;
+  font-weight: 500;
 }
 
-.banner .photographerCard__link__container {
+.banner__tagline {
+  color: black;
+}
+
+.banner .tags {
+  padding: 0;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.banner .contactBtn {
+  color: white;
+  border: none;
+  border-radius: 0.3em;
+  max-width: 18vh;
+  font-size: 1em;
+  font-weight: 500;
+  background-color: #901C1C;
+  padding: 1em 0;
+}
+
+.banner__container {
   width: 200px;
   height: 200px;
   overflow: hidden;
   border-radius: 50%;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
 
-.banner .photographerCard__link__container__img {
+.banner__container__img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.banner .photographerCard__link__name {
-  color: #D3573C;
-  font-weight: 400;
-  font-size: 2.5em;
-  margin: 0;
-}
-
-.banner .photographerCard__loca {
-  color: #901C1C;
-  font-size: 1em;
+.selectMenu {
+  width: 100%;
+  margin: 1% 4% 3% 4%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   font-weight: 500;
-  margin: 0;
 }
 
-.banner .photographerCard__tagline {
-  color: black;
-  margin: 0.5em 0;
+.selectMenu ul {
+  width: 9em;
+  height: 3em;
+  border: none;
+  border-radius: 0.4em;
+  background-color: #901C1C;
+  color: white;
 }
 
-.banner .photographerCard__price {
+.selectMenu ul li ul {
   display: none;
+}
+
+.selectMenu ul:hover ul {
+  display: block;
 }
 
 .cards {
@@ -176,7 +202,7 @@ h1 {
           flex-flow: row wrap;
 }
 
-.cards .photographerCard {
+.photographerCard {
   -webkit-box-flex: 30%;
       -ms-flex: 30%;
           flex: 30%;
@@ -193,7 +219,7 @@ h1 {
   z-index: 2;
 }
 
-.cards .photographerCard__link {
+.photographerCard__link {
   cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -208,44 +234,86 @@ h1 {
   text-decoration: none;
 }
 
-.cards .photographerCard__link__container {
+.photographerCard__link__container {
   width: 200px;
   height: 200px;
   overflow: hidden;
   border-radius: 50%;
 }
 
-.cards .photographerCard__link__container__img {
+.photographerCard__link__container__img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.cards .photographerCard__link__name {
+.photographerCard__link__name {
   color: #D3573C;
   font-weight: 400;
   font-size: 2.5em;
   margin: 0;
 }
 
-.cards .photographerCard__loca {
+.photographerCard__loca {
   color: #901C1C;
   font-size: 1em;
   font-weight: 500;
   margin: 0;
 }
 
-.cards .photographerCard__tagline {
+.photographerCard__tagline {
   color: black;
   margin: 0.5em 0;
 }
 
-.cards .photographerCard__price {
+.photographerCard__price {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: black;
   font-size: 0.3;
   margin: 0;
+}
+
+.imgCard {
+  -webkit-box-flex: 30%;
+      -ms-flex: 30%;
+          flex: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.imgCard__container {
+  overflow: hidden;
+  width: 460px;
+  height: 400px;
+}
+
+.imgCard__container__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.imgCard__title {
+  color: #901C1C;
+  font-size: 1.3em;
+  width: 460px;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 /*# sourceMappingURL=main.css.map */
