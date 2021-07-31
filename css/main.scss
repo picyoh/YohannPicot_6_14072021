@@ -10,23 +10,41 @@ body {
     font-family: 'DM Sans', sans-serif;
 }
 
+p{
+    cursor: default;
+}
 
-header{
+header {
     width: 70%;
     height: 18vh;
     display: flex;
     align-items: center;
     
-    .logo{
+    .logo {
         flex: 10%;
         cursor: pointer;
     }
 
-    nav{
+    nav {
         flex: 60%;
     }
+    .tags{
+        &__border {
+            &:hover{
+                background-color: $color-primary;
+                border-color: transparent;
+            }
+         &__text {
+             cursor: pointer;
+            &:hover{
+                color: white;
+            }
+
+         }   
+        }
+    }
     
-    .linkMain{
+    .linkMain {
         height: 100px;
         position: absolute;
         top: -50px;
@@ -34,6 +52,7 @@ header{
         transition: top 0.5s;
         
         a {
+            cursor: pointer;
             color: black;
             text-decoration: none;
             padding: 0.2em 0.4em;
@@ -42,49 +61,60 @@ header{
             background-color: $color-secondary;
         }
 
-        &:hover{
+        &:hover {
             top: 8px;
         }
     }
 }
 
-main{
+main {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    h1 {
+        position: absolute;
+        top: 0;
+        right: 3%;
+        margin: 3% 0;
+        color: $color-primary;
+        font-size: 2.5em;
+    }
 }
 
-h1{
-    position: absolute;
-    top: 0;
-    right: 3%;
-    margin: 3% 0;
-    color: $color-primary;
-    font-size: 2.5em;
+button {
+    cursor: pointer;
+    width: 9vw;
+    padding: 1em 0;
+    border: none;
+    border-radius: 0.3em;
+    font-size: 1em;
+    font-weight: 500;
+    color: white;
+    background-color: $color-primary;
 }
 
 // component Tags
-.tags{
+.tags {
     display: flex;
     justify-content: space-evenly;
-    &__border {
+    &__border  {
         display: inline;
         list-style-type: none;
         border-radius: 2.5vh;
         border: 0.1em solid lightgray;
         margin: 0 0.3vw;
         padding: 0.1vh;
-
-        &__text{
-            cursor: pointer;
+            
+        &__text {
+            cursor: default;
             text-decoration: none;
-            padding: 5px 3px;
+            padding: 0 0.3em;
             color: $color-primary;
         }
     }
 }
 
-.banner{
+.banner {
     width: 100%;
     max-height: 25vh;
     display: flex;
@@ -93,49 +123,41 @@ h1{
     margin: 0 4%;
     padding: 3%;
     
-    h1{
+    h1 {
         position: relative;
         color: $color-secondary;
         margin: 0;
         right: auto;
     }
     
+    button:hover{
+        background-color: $color-secondary;
+        color: black;
+    }
     
-    &__loca{
+    &__loca {
         color: $color-primary;
         font-size: 1em;
         font-weight: 500;
     }
 
-    &__tagline{
+    &__tagline {
         color: black;
     }
 
-    .tags{
+    .tags {
         padding: 0;
         justify-content: flex-start;
     }
 
-    .contactBtn{
-        color: white;
-        border: none;
-        border-radius: 0.3em;
-        max-width: 18vh;
-        font-size: 1em;
-        font-weight: 500;
-        background-color: $color-primary;
-        padding: 1em 0;
-
-    }
-
-    &__container{
+    &__container {
         width: 200px;
         height: 200px;
         overflow: hidden;
         border-radius: 50%;
         align-self: flex-end;
 
-        &__img{
+        &__img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -145,27 +167,71 @@ h1{
 }
 
 // selectMenu
-.selectMenu{
+.selectMenu {
     width: 100%;
+    height: 6vh;
     margin: 1% 4% 3% 4%;
     display: flex;
-    justify-content: flex-start;
-    font-weight: 500;
+    font-weight: 700;
+    
+    p {
+        margin-right: 2em;
+    }
+    
+    button {
+        z-index: 2;
+        padding: 0;
 
-    ul{
-        width: 9em;
-        height: 3em;
-        border: none;
-        border-radius: 0.4em;
-        background-color: $color-primary;
-        color: white;
+        ul {
+            margin:0;
+            padding: 0;
+            list-style-type: none;
+            border-radius: 0.3em;
+            background-color: $color-primary;
+            
+            li{
+                &:hover{
+                    i:before{
+                        content:'\f106';
+                    }
+                }
 
-        li{
-            ul{
-                display: none;
+                a{
+                    padding: 1.2em;
+                    display: flex;
+                    justify-content: space-between;
+                    
+                    &:hover{
+                        background-color: $color-secondary;
+                        color: black;
+                    }
+                }  
+                
+                ul{
+                    list-style-type: none;
+                    display: none;
+
+                    li{
+                        position: relative;
+
+                        &:before{
+                            content:'';
+                            position: absolute;
+                            top: 0;
+                            left: 5%;
+                            height: 1px;
+                            width: 90%;
+                            background-color: white;
+                        }
+                        &:hover{
+                            background-color: $color-secondary;
+                            color: black;
+                        }
+                    }
+                }
             }
         }
-
+    
         &:hover{
             ul{
                 display: block;
@@ -175,54 +241,54 @@ h1{
 }
 
 // cards
-.cards{
+.cards {
     display: flex;
     flex-flow: row wrap;
 }
 
 // card Main
-.photographerCard {
+.photographerCard  {
     flex: 30%;
     display: flex;
     flex-flow: column;
     align-items: center;
     z-index: 2;
-    &__link{
+    &__link {
         cursor: pointer;
         display: flex;
         flex-flow: column;
         align-items: center;
         text-decoration: none;
-        &__container {
+        &__container  {
             width: 200px;
             height: 200px;
             overflow: hidden;
             border-radius: 50%;
 
-            &__img {
+            &__img  {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
             }
         }    
-        &__name{
+        &__name {
             color: $color-secondary;
             font-weight: 400;
             font-size: 2.5em;
             margin: 0;
         }
     }
-    &__loca{
+    &__loca {
         color: $color-primary;
         font-size: 1em;
         font-weight: 500;
         margin: 0;
     }
-    &__tagline{
+    &__tagline {
         color: black;
         margin: 0.5em 0;
     }
-    &__price{
+    &__price {
         font-family: 'Roboto', sans-serif;
         font-weight: 300;
         color: black;
@@ -234,29 +300,197 @@ h1{
 
 // card personale page
 
-.imgCard{
+.mediaCard {
     flex: 30%;
     display: flex;
     flex-flow: column;
     align-items: center;
 
-    &__container{
+    &__container {
+        cursor: pointer;
         overflow: hidden;
-        width: 460px;
+        width: 480px;
         height: 400px;
-        &__img{
+        &__img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
     }
 
-    &__title{
+    &__title {
         color: $color-primary;
         font-size: 1.3em;
         width: 460px;
         margin: 0;
         display: flex;
         justify-content: space-between;
+        align-items: baseline;
+    }
+
+    .likes{
+        cursor: pointer;
+        display: inline-block;
+        display: flex;
+        
+        p {
+            margin: 0;
+            cursor: pointer;
+        }
+
+        i {
+            align-self: center;
+        }
+    }
+}
+
+.additional {
+    cursor: default;
+    position: fixed;
+    bottom: -5px;
+    right: 1vw;
+    width: 25vw;
+    border-radius: 0.3em;
+    background-color: $color-secondary;
+    display: flex;
+    justify-content: space-around;
+    
+    span {
+        display: flex;
+        
+        i {
+            align-self: center;
+        }
+    }
+    
+}
+
+.modal{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: rgba($color-lightgrey, 0.5);
+}
+
+.closeModal{
+    cursor: pointer;
+    position: absolute;
+    top: 5%;
+    right: 3%;
+    width: 50px;
+    height: 50px;
+    &:before{
+        content: '';
+        position: absolute;
+        height: 5px;
+        width: 100%;
+        background-color: white;
+        top: 45%;
+        transform: rotate(45deg);
+    }
+
+    &:after{
+        content: '';
+        position: absolute;
+        height: 5px;
+        width: 100%;
+        background-color: white;
+        top: 45%;
+        transform: rotate(-45deg);
+    }
+}
+
+.form-modal{
+    width: 50%;
+    height: 85%;
+    padding: 1% 2%;
+    position: relative;
+    left: 25%;
+    top: 5%; 
+    display: flex;
+    flex-flow: column;
+    background-color: $color-secondary;
+
+    h1{
+        margin: 0;
+        margin-bottom: 0.5em;
+        position: relative;
+        font-size: 4em;
+        font-weight: 500;
+    }
+
+    label {
+        font-size: 2.5em;
+    }
+
+    input{
+        height: 5vh;
+        font-size: 1.5em;
+        border: none;
+        border-radius: 0.3em;
+    }
+
+    textarea{
+        height: 20vh;
+        margin-bottom: 2em;
+        resize: none;
+        border: none;
+        border-radius: 0.3em;
+    }
+
+}
+
+.lightbox-modal{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    background-color: white;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-end;
+
+    &__chevron{
+        cursor: pointer;
+        align-self: center;
+
+        i{
+            font-size: 3em;
+
+            &:before{
+                color: $color-primary;
+            }
+        }
+    }
+
+    &__container{
+        width: 80%;
+        height: 85%;
+        margin: 0 2%;        
+        overflow: hidden;
+
+        &__img {
+            width: 100%;
+            object-fit: scale-down;
+        }
+    }
+
+    p{
+        flex-basis: 80%;
+        color: $color-primary;
+        font-size: 1.3em;
+        margin-top: 0;
+    }
+
+    .closeModal{
+        &:before, &:after{
+            background-color: $color-primary;
+            position: relative;
+        }
     }
 }

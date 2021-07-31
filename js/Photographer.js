@@ -22,7 +22,7 @@ class Photographer{
             </a>
             <p class="photographerCard__loca">${this.city}, ${this.country}</p>
             <p class="photographerCard__tagline">${this.tagline}</p>
-            <p class="photographerCard__price">${this.price}€/jours</p>
+            <p class="photographerCard__price">${this.price}€/jour</p>
             <ul class="tags">
             ${this.tags.map(tag => `
             <a class="tags__border">
@@ -35,7 +35,8 @@ class Photographer{
         cards.insertAdjacentHTML('beforeend', card);
     }
 
-    createBanner(){
+    createBanner(pictureNumbers, nLikes){
+
         const banner = `
         <div class="banner">
             <h1>${this.name}</h1>
@@ -48,7 +49,7 @@ class Photographer{
             </a>
           `).join('')}
             </ul>
-            <button class="contactBtn">Contactez-moi</button>
+            <button class="contactButton">Contactez-moi</button>
             <div class="banner__container">
                 <img class="banner__container__img"
                 src="/images/FishEye_Photos/Sample_Photos/Photographers ID Photos/${this.portrait}">
@@ -56,5 +57,18 @@ class Photographer{
         </div>
         `;
         main.insertAdjacentHTML('afterbegin', banner);
+
+        const additional= `
+        <div class="additional">
+            <p>${pictureNumbers}<i class="far fa-image"></i></p>
+            <span>
+                <p class="totalLikes">${nLikes}</p>
+                <i class="fas fa-heart"></i>
+            </span> 
+            <p>${this.price}€/jour</p>
+            </div>
+        </div>
+        `;
+        cards.insertAdjacentHTML('beforeend', additional);
     }
 }
