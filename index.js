@@ -9,7 +9,7 @@ let tagList = [];
 
 // request JSON
 
-const requestURL = '/json/FishEyeData.json';
+const requestURL = 'json/FishEyeData.json';
 const request = new XMLHttpRequest();
 
 request.open('GET', requestURL);
