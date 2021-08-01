@@ -16,7 +16,7 @@ class Photographer{
             <a class="photographerCard__link" href="#${(this.name).replace(' ', '_')}">
                 <div class="photographerCard__link__container">
                     <img class="photographerCard__link__container__img" 
-                    src="/images/FishEye_Photos/Sample_Photos/Photographers ID Photos/${this.portrait}">
+                    src="FishEye_Photos/Sample_Photos/Photographers ID Photos/${this.portrait}">
                 </div>
                 <h2 class="photographerCard__link__name">${this.name}</h2>
             </a>
@@ -52,7 +52,7 @@ class Photographer{
             <button class="contactButton">Contactez-moi</button>
             <div class="banner__container">
                 <img class="banner__container__img"
-                src="/images/FishEye_Photos/Sample_Photos/Photographers ID Photos/${this.portrait}">
+                src="FishEye_Photos/Sample_Photos/Photographers ID Photos/${this.portrait}">
             </div>
         </div>
         `;
