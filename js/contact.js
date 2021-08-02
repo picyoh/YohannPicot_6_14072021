@@ -18,5 +18,5 @@ function createFormModal(phName){
     </div>
     `;
 
-    wrapper.insertAdjacentHTML('afterend', formModal);
+    document.querySelector('.wrapper').insertAdjacentHTML('afterend', formModal);
 }

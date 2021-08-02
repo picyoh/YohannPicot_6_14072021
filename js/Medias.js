@@ -55,10 +55,10 @@ class Medias{
             <a class="lightbox-modal__chevron">
                 <i id="right" class="fas fa-chevron-right"></i>
             </a>
-            <p>${this.title}</p>
+            <p class="lightbox-modal__title">${this.title}</p>
             <div class="closeModal"></div>
         </div>
         `;
-        wrapper.insertAdjacentHTML('afterend', lightboxMarkup);
+        document.querySelector('.wrapper').insertAdjacentHTML('afterend', lightboxMarkup);
     }
 }

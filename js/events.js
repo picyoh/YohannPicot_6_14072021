@@ -1,7 +1,7 @@
 // listen window
 
 // reload page on logo click
-logo.addEventListener('click', function(){
+document.querySelector('.logo').addEventListener('click', function(){
     window.location.reload();
 });
 
@@ -11,20 +11,6 @@ window.addEventListener('hashchange', function(e){
         window.location.reload();
     }
 });
-
-// listen main page
-function listenMainPage(){
-    
-    navTags = nav.querySelectorAll('.tags__border__text');
-    // event sort Tags
-    for(tag of navTags) {
-        tag.addEventListener('click', (e)=>{
-            clickedTag = e.target.textContent.substring(1);
-            removeContent();
-            populatePhotographers(photographers, clickedTag);
-        });
-    }
-}
 
 // listen personal page
 function listenPersonalPage(){
@@ -58,6 +44,7 @@ function listenPersonalPage(){
 
     // lightbox
     let mediaCardTags = document.querySelectorAll('.mediaCard__container');
+
     for(mediaCardTag of mediaCardTags){
         mediaCardTag.addEventListener('click', (e)=>{
             let mediaTarget = e.target.parentNode.parentNode;
@@ -70,14 +57,12 @@ function listenPersonalPage(){
                 let comparedMediaTitle = mediasArray[indexMedia].title;
                 if (mediaTitle == comparedMediaTitle){
                     let lightBoxImg = new Medias(media.date, media.id, media.image, media.video,media.likes, media.photographerId, media.price, media.tags, media.title);
-                    lightBoxImg.createLightbox(eventFirstname);    
+                    lightBoxImg.createLightbox(eventFirstname);
+                    lightboxControls(indexMedia)
                 }
-                // récupérer index pour next prev
-                indexMediaArray = indexMedia;
-                // lightboxControls(indexMediaArray);
             }
         });
-        // closeModal();
+        closeModal();
     }
 }
 
@@ -107,8 +92,9 @@ function sortingMedias(selectedFilter){
     }
     // remove content
     removeContent();
+    
     // create selectmenu
-    main.removeChild(selectMenu);
+    document.querySelector('main').removeChild(selectMenu);
     createSelectMenu(selectedFilter);
     // createMedias wth mediasArray
     for(index in mediasArray){
@@ -116,35 +102,76 @@ function sortingMedias(selectedFilter){
         let newMedias = new Medias(media.date, media.id, media.image, media.video,media.likes, media.photographerId, media.price, media.tags, media.title);
         newMedias.createCard(eventFirstname);
     }
+
     listenPersonalPage();
 }
 
-function lightboxControls(indexMediaArray){
-    
+function lightboxControls(indexMedia){
+
     let left = document.querySelector('#left');
-    console.log(left);
     left.addEventListener('click',(e)=>{
-        indexMediaArray--;
+        indexMedia--;
+        switchImages(indexMedia);
     });
 
     let right = document.querySelector('#right');
     right.addEventListener('click', (e) => {
-        indexMediaArray++;
+        indexMedia++;
+        switchImages(indexMedia);
     });
 
-    let media = mediasArray[indexMediaArray];
-    let lightBoxImg = new Medias(media.date, media.id, media.image, media.video,media.likes, media.photographerId, media.price, media.tags, media.title);
-    lightBoxImg.createLightbox(eventFirstname);
+    // let lightBoxImg = new Medias(media.date, media.id, media.image, media.video,media.likes, media.photographerId, media.price, media.tags, media.title);
+    // lightBoxImg.createLightbox(eventFirstname);
 
-    listenPersonalPage();  
+    listenPersonalPage();
+    closeModal();  
 }
+
+function switchImages(indexMedia){
+    // remove media
+    let container = document.querySelector('.lightbox-modal__container');
+    let image = container.children[0];
+    container.removeChild(image);
+    
+    let lightbox = document.querySelector('.lightbox-modal');
+    let title = document.querySelector('.lightbox-modal__title');
+    console.log(title)
+
+    let maxArray = mediasArray.length;
+    console.log(maxArray);
+
+    (indexMedia >= maxArray)
+    ? indexMedia = 0
+    :indexMedia;
+    
+    console.log(indexMedia);
+    let media = mediasArray[indexMedia];
+    console.log(media);
+    console.log(media.title);
+    title.textContent = media.title;
+    
+    let newLightboxContent = `
+    ${(media.image == undefined) 
+        ? `<video class="lightbox-modal__container__img controls preload="metadata">
+            <source 
+                src="FishEye_Photos/Sample_Photos/${eventFirstname}/${media.video}#t=0.1" type="video/mp4">
+            </video>` 
+        : `<img class="lightbox-modal__container__img" 
+                src="FishEye_Photos/Sample_Photos/${eventFirstname}/${media.image}">`
+    }`;
+
+    container.insertAdjacentHTML('afterbegin', newLightboxContent);
+    lightboxControls(indexMedia);
+}
+
+
 
 function closeModal(){
 
     let modalTag = document.querySelector('.modal')
     let closeModalTag = document.querySelector('.closeModal');
         closeModalTag.addEventListener('click', (e) => {
-        body.removeChild(modalTag);
+        document.querySelector('body').removeChild(modalTag);
 
     });
 }

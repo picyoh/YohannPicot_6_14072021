@@ -56,7 +56,7 @@ class Photographer{
             </div>
         </div>
         `;
-        main.insertAdjacentHTML('afterbegin', banner);
+        document.querySelector('main').insertAdjacentHTML('afterbegin', banner);
 
         const additional= `
         <div class="additional">

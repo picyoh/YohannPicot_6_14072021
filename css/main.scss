@@ -488,9 +488,9 @@ button {
     }
 
     .closeModal{
+        right: 7%;
         &:before, &:after{
             background-color: $color-primary;
-            position: relative;
         }
     }
 }

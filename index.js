@@ -1,11 +1,5 @@
-const body = document.querySelector('body');
-const header = document.querySelector('header');
-const logo = document.querySelector('.logo');
 const nav = document.querySelector('nav');
-const main = document.querySelector('main');
 const cards = document.querySelector('.cards');
-const wrapper = document.querySelector('.wrapper');
-let tagList = [];
 
 // request JSON
 
@@ -20,7 +14,7 @@ request.onload = function(){
     // get Json
     const fullJson = request.response;
     // get photographers from jsonObj
-    photographers = fullJson['photographers'];
+    const photographers = fullJson['photographers'];
     const medias = fullJson['media'];
     
     populatePhotographers(photographers);

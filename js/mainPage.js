@@ -1,16 +1,22 @@
 // MAIN
 let clickedTag;
 let navTags;
+let tagList = [];
 
 // populate PhotographerCards
 function populatePhotographers(photographers, clickedTag){
+
     // create card for each
     for(const index in photographers){        
         let photograph = photographers[index];
         let tagExist;
-        //si (clickedTag == undefinded || photographer.tags[x]
+        //clicked tag check
         for(const tagName of photograph.tags){
-            (clickedTag == undefined) ? tagExist = true : (clickedTag == tagName) ? tagExist = true : tagExist;
+            (clickedTag == undefined) 
+                ? tagExist = true 
+                : (clickedTag == tagName) 
+                ? tagExist = true 
+                : tagExist;
         }
 
         if(tagExist){
@@ -29,6 +35,7 @@ function populatePhotographers(photographers, clickedTag){
     }
     //addTagsinNav 
         addTagsNav(tagList);
+        listenMainPage(photographers);
 }
 
 // create navigation tags
@@ -45,5 +52,19 @@ function addTagsNav(tagList){
     `;
 
     nav.insertAdjacentHTML('afterbegin', tagsInNav);
-    listenMainPage();
+
+}
+
+// listen main page
+function listenMainPage(photographers){
+    
+    navTags = nav.querySelectorAll('.tags__border__text');
+    // event sort Tags
+    for(tag of navTags) {
+        tag.addEventListener('click', (e)=>{
+            clickedTag = e.target.textContent.substring(1);
+            removeContent();
+            populatePhotographers(photographers, clickedTag);
+        });
+    }
 }

@@ -579,8 +579,11 @@ button {
   margin-top: 0;
 }
 
+.lightbox-modal .closeModal {
+  right: 7%;
+}
+
 .lightbox-modal .closeModal:before, .lightbox-modal .closeModal:after {
   background-color: #901C1C;
-  position: relative;
 }
 /*# sourceMappingURL=main.css.map */

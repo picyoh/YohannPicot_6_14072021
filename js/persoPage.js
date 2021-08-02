@@ -45,8 +45,8 @@ function createPersonalPage(photographers, medias){
 
             // remove title & nav
             let title = document.querySelector('h1');
-            main.removeChild(title);
-            header.removeChild(nav);
+            document.querySelector('main').removeChild(title);
+            document.querySelector('header').removeChild(nav);
 
             removeContent();
             
