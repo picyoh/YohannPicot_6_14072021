@@ -1,0 +1,31 @@
+.modal{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: rgba($color-lightgrey, 0.5);
+}
+
+.closeModal{
+    cursor: pointer;
+    position: absolute;
+    top: 5%;
+    right: 3%;
+    width: 50px;
+    height: 50px;
+    &:before{
+        @include close-modal-element;
+        transform: rotate(45deg);
+    }
+
+    &:after{
+        @include close-modal-element;
+        transform: rotate(-45deg);
+    }
+}
+
+input:invalid{
+    box-shadow: 0 0 5px 1px blue;
+}

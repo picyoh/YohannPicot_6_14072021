@@ -1,5 +1,5 @@
 // PERSOPAGE
-// récupérer hash page pour set selected filter
+
 let mediasArray = [];
 let likes;
 let eventFirstname;
@@ -39,7 +39,7 @@ function createPersonalPage(photographers, medias){
     let photographerCard = document.querySelectorAll('.photographerCard');
     for(let i = 0; i < photographerCard.length; i++){
         // event listener
-        photographerCard[i].addEventListener('click', (event) => {
+        photographerCard[i].children[0].addEventListener('click', (event) => {
             
             event.stopPropagation();
 

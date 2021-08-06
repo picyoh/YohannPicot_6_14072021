@@ -12,6 +12,11 @@ window.addEventListener('hashchange', function(e){
     }
 });
 
+//keyboard events
+// leftKey.addEventListener('keydown', lightboxControls());
+// rightKey.addEventListener('keydown', lightboxControls());
+// escape ?
+
 // listen personal page
 function listenPersonalPage(){
 
@@ -26,9 +31,9 @@ function listenPersonalPage(){
     }
 
     // selectMenu
-    selectMenu = document.querySelector('.selectMenu');
+    selectMenuFilter = document.querySelector('.selectMenu__filters');
     
-    selectMenu.addEventListener('click',(e)=> {
+    selectMenuFilter.addEventListener('click',(e)=> {
         selectedFilter = e.target.textContent;
         sortingMedias(selectedFilter);
     });
@@ -59,10 +64,10 @@ function listenPersonalPage(){
                     let lightBoxImg = new Medias(media.date, media.id, media.image, media.video,media.likes, media.photographerId, media.price, media.tags, media.title);
                     lightBoxImg.createLightbox(eventFirstname);
                     lightboxControls(indexMedia)
+                    closeModal();
                 }
             }
         });
-        closeModal();
     }
 }
 
@@ -92,10 +97,12 @@ function sortingMedias(selectedFilter){
     }
     // remove content
     removeContent();
-    
+
     // create selectmenu
+    let selectMenu = document.querySelector('.selectMenu');
     document.querySelector('main').removeChild(selectMenu);
     createSelectMenu(selectedFilter);
+    
     // createMedias wth mediasArray
     for(index in mediasArray){
         let media = mediasArray[index];
@@ -168,7 +175,7 @@ function switchImages(indexMedia){
 
 function closeModal(){
 
-    let modalTag = document.querySelector('.modal')
+    let modalTag = document.querySelector('.modal');
     let closeModalTag = document.querySelector('.closeModal');
         closeModalTag.addEventListener('click', (e) => {
         document.querySelector('body').removeChild(modalTag);

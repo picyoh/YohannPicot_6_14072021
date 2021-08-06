@@ -13,7 +13,7 @@ class Photographer{
     createCard(){
         const card = `
         <div id= "${this.id}" class="photographerCard" name="${this.name}">
-            <a class="photographerCard__link" href="#${(this.name).replace(' ', '_')}">
+            <a class="photographerCard__link" href="#${this.name.replace(' ', '_')}">
                 <div class="photographerCard__link__container">
                     <img class="photographerCard__link__container__img" 
                     src="FishEye_Photos/Sample_Photos/Photographers ID Photos/${this.portrait}">

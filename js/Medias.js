@@ -17,7 +17,7 @@ class Medias{
         <a class=mediaCard>
             <div class="mediaCard__container">
             ${(this.image == undefined) 
-                ? `<video class="mediaCard__container__img controls preload="metadata">
+                ? `<video class="mediaCard__container__img" preload="metadata">
                     <source 
                         src="FishEye_Photos/Sample_Photos/${eventFirstname}/${this.video}#t=0.1" type="video/mp4">
                     </video>` 
@@ -38,25 +38,27 @@ class Medias{
     createLightbox(eventFirstname){
         
         const lightboxMarkup = `
-        <div class="lightbox-modal">
-            <a class="lightbox-modal__chevron">
-                <i id="left" class="fas fa-chevron-left"></i>
-            </a>
-            <div class="lightbox-modal__container">
-                ${(this.image == undefined) 
-                    ? `<video class="lightbox-modal__container__img controls preload="metadata">
-                        <source 
-                            src="FishEye_Photos/Sample_Photos/${eventFirstname}/${this.video}#t=0.1" type="video/mp4">
-                        </video>` 
-                    : `<img class="lightbox-modal__container__img" 
-                            src="FishEye_Photos/Sample_Photos/${eventFirstname}/${this.image}">`
-                }
+        <div class="modal">
+            <div class="lightbox-modal">
+                <a class="lightbox-modal__chevron">
+                    <i id="left" class="fas fa-chevron-left"></i>
+                </a>
+                <div class="lightbox-modal__container">
+                    ${(this.image == undefined) 
+                        ? `<video class="lightbox-modal__container__img" preload="metadata" controls>
+                            <source 
+                                src="FishEye_Photos/Sample_Photos/${eventFirstname}/${this.video}" type="video/mp4">
+                            </video>` 
+                        : `<img class="lightbox-modal__container__img" 
+                                src="FishEye_Photos/Sample_Photos/${eventFirstname}/${this.image}">`
+                    }
+                </div>
+                <a class="lightbox-modal__chevron">
+                    <i id="right" class="fas fa-chevron-right"></i>
+                </a>
+                <p class="lightbox-modal__title">${this.title}</p>
+                <div class="closeModal"></div>
             </div>
-            <a class="lightbox-modal__chevron">
-                <i id="right" class="fas fa-chevron-right"></i>
-            </a>
-            <p class="lightbox-modal__title">${this.title}</p>
-            <div class="closeModal"></div>
         </div>
         `;
         document.querySelector('.wrapper').insertAdjacentHTML('afterend', lightboxMarkup);

@@ -45,7 +45,7 @@ function addTagsNav(tagList){
         <ul class="tags">
         ${tagList.map(tag => `
         <li class="tags__border">
-            <a class="tags__border__text">#${tag}</a>
+            <a class="tags__border__text" href="#${tag}">#${tag}</a>
         </li>
       `).join('')}
         </ul>
