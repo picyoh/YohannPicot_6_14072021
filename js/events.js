@@ -15,7 +15,6 @@ window.addEventListener('hashchange', function(e){
 //keyboard events
 // leftKey.addEventListener('keydown', lightboxControls());
 // rightKey.addEventListener('keydown', lightboxControls());
-// escape ?
 
 // listen personal page
 function listenPersonalPage(){
@@ -53,9 +52,7 @@ function listenPersonalPage(){
     for(mediaCardTag of mediaCardTags){
         mediaCardTag.addEventListener('click', (e)=>{
             let mediaTarget = e.target.parentNode.parentNode;
-            console.log(mediaTarget);
             let mediaTitle = mediaTarget.children[1].children[0].textContent;
-            console.log(mediaTitle);
             // comparer titre
             for(indexMedia in mediasArray){
                 let media = mediasArray[indexMedia];
@@ -115,20 +112,31 @@ function sortingMedias(selectedFilter){
 
 function lightboxControls(indexMedia){
 
+    let maxArray = mediasArray.length;
+
     let left = document.querySelector('#left');
     left.addEventListener('click',(e)=>{
-        indexMedia--;
+
+        console.log(indexMedia);
+        (indexMedia > 0)
+        ? indexMedia--  
+        : indexMedia = maxArray -1;
+        console.log(indexMedia);
+
         switchImages(indexMedia);
     });
 
     let right = document.querySelector('#right');
     right.addEventListener('click', (e) => {
-        indexMedia++;
+
+        console.log(indexMedia);
+        (indexMedia < maxArray -1)
+        ? indexMedia++
+        : indexMedia = 0;
+        console.log(indexMedia);
+
         switchImages(indexMedia);
     });
-
-    // let lightBoxImg = new Medias(media.date, media.id, media.image, media.video,media.likes, media.photographerId, media.price, media.tags, media.title);
-    // lightBoxImg.createLightbox(eventFirstname);
 
     listenPersonalPage();
     closeModal();  
@@ -142,26 +150,15 @@ function switchImages(indexMedia){
     
     let lightbox = document.querySelector('.lightbox-modal');
     let title = document.querySelector('.lightbox-modal__title');
-    console.log(title)
-
-    let maxArray = mediasArray.length;
-    console.log(maxArray);
-
-    (indexMedia >= maxArray)
-    ? indexMedia = 0
-    :indexMedia;
     
-    console.log(indexMedia);
     let media = mediasArray[indexMedia];
-    console.log(media);
-    console.log(media.title);
     title.textContent = media.title;
     
     let newLightboxContent = `
     ${(media.image == undefined) 
-        ? `<video class="lightbox-modal__container__img controls preload="metadata">
+        ? `<video class="lightbox-modal__container__img" preload="metadata" controls>
             <source 
-                src="FishEye_Photos/Sample_Photos/${eventFirstname}/${media.video}#t=0.1" type="video/mp4">
+                src="FishEye_Photos/Sample_Photos/${eventFirstname}/${media.video}" type="video/mp4">
             </video>` 
         : `<img class="lightbox-modal__container__img" 
                 src="FishEye_Photos/Sample_Photos/${eventFirstname}/${media.image}">`

@@ -119,5 +119,6 @@ main {
     flex-flow: row wrap;
     @include phone-only {
         margin-top: 5vh;
+        flex-flow: column;
     }
 }
