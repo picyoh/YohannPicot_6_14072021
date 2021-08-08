@@ -13,22 +13,24 @@ header {
     width: 75%;
     height: 18vh;
     display: flex;
+    flex-flow: row;
     align-items: center;
+    
     @include phone-only {
         width: 100%;
         height: 100%;
         flex-flow: row wrap;
     }
     
+    @include phone-tablet {
+    }
+
     .logo {
         cursor: pointer;
-        flex: 20%;
         display: flex;
-        justify-content: flex-end;
-        
-        img {
-            padding-left: 5%;
-        }
+        justify-content: flex-start;
+        flex: 20%;
+        margin-left: 5%;
 
         @include phone-only {
             flex: 100%;
@@ -45,6 +47,7 @@ header {
     }
 
     .tags{
+        padding: 0;
         &__border {
             &:hover{
                 background-color: $color-primary;
@@ -121,4 +124,15 @@ main {
         margin-top: 5vh;
         flex-flow: column;
     }
+}
+
+button {
+    @include font-medium;
+    cursor: pointer;
+    width: 9vw;
+    padding: 1em 0;
+    border: none;
+    border-radius: 0.3em;
+    color: white;
+    background-color: $color-primary;
 }

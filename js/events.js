@@ -1,12 +1,12 @@
 // listen window
 
 // reload page on logo click
-document.querySelector('.logo').addEventListener('click', function(){
+document.querySelector('.logo').addEventListener('click',(e)=>{
     window.location.reload();
 });
 
 // reload when hash is undefined
-window.addEventListener('hashchange', function(e){
+window.addEventListener('hashchange', (e)=>{
     if(window.location.hash == ''){
         window.location.reload();
     }
@@ -30,12 +30,14 @@ function listenPersonalPage(){
     }
 
     // selectMenu
-    selectMenuFilter = document.querySelector('.selectMenu__filters');
+    selectMenuFilters = document.querySelectorAll('.selectMenu__filters');
     
-    selectMenuFilter.addEventListener('click',(e)=> {
-        selectedFilter = e.target.textContent;
-        sortingMedias(selectedFilter);
-    });
+    for(selectMenuFilter of selectMenuFilters){
+        selectMenuFilter.addEventListener('click',(e)=> {
+            selectedFilter = e.target.textContent;
+            sortingMedias(selectedFilter);
+        });
+    }
 
     // contact
     let contactButton = document.querySelector('.contactButton');
@@ -60,7 +62,7 @@ function listenPersonalPage(){
                 if (mediaTitle == comparedMediaTitle){
                     let lightBoxImg = new Medias(media.date, media.id, media.image, media.video,media.likes, media.photographerId, media.price, media.tags, media.title);
                     lightBoxImg.createLightbox(eventFirstname);
-                    lightboxControls(indexMedia)
+                    lightboxControls(indexMedia); 
                     closeModal();
                 }
             }
@@ -111,38 +113,57 @@ function sortingMedias(selectedFilter){
 }
 
 function lightboxControls(indexMedia){
-
+    
+    console.log(indexMedia);
     let maxArray = mediasArray.length;
+    
+    // keyboards events
 
+    window.addEventListener('keyup', (e)=> {
+        console.log(e)
+        getKeyboardCode(e);
+    });
+
+    function getKeyboardCode(e){
+        (e.key == 'ArrowLeft')
+        ? movingLeft()
+        : (e.key == 'ArrowRight')
+            ? movingRight()
+            : console.log('error');
+    }
+
+    // click events
     let left = document.querySelector('#left');
-    left.addEventListener('click',(e)=>{
+    left.addEventListener('click', (e)=>{
+        movingLeft();
+    }); 
 
-        console.log(indexMedia);
+    let right = document.querySelector('#right');
+    right.addEventListener('click', (e)=>{
+        movingRight();
+    }); 
+    
+    function movingLeft(){
+
         (indexMedia > 0)
         ? indexMedia--  
         : indexMedia = maxArray -1;
-        console.log(indexMedia);
 
         switchImages(indexMedia);
-    });
+    }
 
-    let right = document.querySelector('#right');
-    right.addEventListener('click', (e) => {
+    function movingRight(){
 
-        console.log(indexMedia);
         (indexMedia < maxArray -1)
         ? indexMedia++
         : indexMedia = 0;
-        console.log(indexMedia);
 
         switchImages(indexMedia);
-    });
-
-    listenPersonalPage();
-    closeModal();  
+    }
 }
 
 function switchImages(indexMedia){
+    console.log(indexMedia);
     // remove media
     let container = document.querySelector('.lightbox-modal__container');
     let image = container.children[0];
@@ -165,7 +186,6 @@ function switchImages(indexMedia){
     }`;
 
     container.insertAdjacentHTML('afterbegin', newLightboxContent);
-    lightboxControls(indexMedia);
 }
 
 
@@ -174,8 +194,8 @@ function closeModal(){
 
     let modalTag = document.querySelector('.modal');
     let closeModalTag = document.querySelector('.closeModal');
+    
         closeModalTag.addEventListener('click', (e) => {
-        document.querySelector('body').removeChild(modalTag);
-
+            document.querySelector('body').removeChild(modalTag);
     });
 }

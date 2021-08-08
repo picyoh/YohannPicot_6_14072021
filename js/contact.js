@@ -23,27 +23,27 @@ function createFormModal(phName){
 }
 
 function checkContact(){
-    let inputs = document.querySelectorAll('input');
+    // let inputs = document.querySelectorAll('input');
 
-    for(let input of inputs){
-        input.addEventListener('blur', (e)=> {
+    // for(let input of inputs){
+    //     input.addEventListener('blur', (e)=> {
             
-            // let checkInput = e.target.checkValidity();
-            // switch (input.id){
-            //     case "firstName":
-            //     case "lastName":
-            //         console.log('nom');
-            //         console.log(input.validity.)
-            //     break;
-            //     case "email":
-            //         console.log('mail');
-            //     break;
+    //         // let checkInput = e.target.checkValidity();
+    //         // switch (input.id){
+    //         //     case "firstName":
+    //         //     case "lastName":
+    //         //         console.log('nom');
+    //         //         console.log(input.validity.)
+    //         //     break;
+    //         //     case "email":
+    //         //         console.log('mail');
+    //         //     break;
         
-            //     default: console.log('erreur dev');
-            //     break;
-            // }
-        });
-    }
+    //         //     default: console.log('erreur dev');
+    //         //     break;
+    //         // }
+    //     });
+    // }
     
     document.querySelector(".submit").addEventListener('click', (e) => {
         let form = document.querySelector('form');

@@ -41,16 +41,11 @@
     @include phone-only {
 
         &__container {
-            width: 90vw;
-            height: 30vh;
+            width: 320px;
+            height: 200px;
             border-radius: 0.3em;
-            
-            &__img {
-                object-position: center;
-                max-width: 100%;
-                max-height:100%;
-            }
         }
+        
         &__title {
             width: 90vw;
             font-size: 1em;

@@ -25,6 +25,10 @@
                     i:before{
                         content:'\f106';
                     }
+                                            
+                    ul{
+                        display: block;
+                    }
                 }
 
                 a{
@@ -59,13 +63,8 @@
                             background-color: $color-secondary;
                             color: black;
                         }
-                        
-                        ul{
-                            display: block;
-                        }
                     }
-                }
-                
+                }     
             }
         }
     }
