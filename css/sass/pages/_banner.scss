@@ -87,6 +87,39 @@
         }
 
     }    
+    
+    @include phone-tablet{
+        margin-bottom: 5vh;
+        button{
+            width: 18vw;
+            position: relative;
+            right: 5%;
+        }
+    }
+
+    @include tablet-laptop {
+        max-height: 18vh;
+        margin-bottom: 2vh;
+
+        button {
+            width: 18vw;
+            position: relative;
+        }
+    }
+
+    @include laptop {
+        height: auto;
+
+        &__tagline {
+            margin: 0;
+            white-space: pre-line;
+            max-width: 70%;
+        }
+
+        button{
+            width: 18vw;
+        }
+    }
 }
 
 //additional infos in perso page 
@@ -108,8 +141,16 @@
             align-self: center;
         }
     }
+
     @include phone-only {
         display: none;
     }
-    
+
+    @include phone-tablet {
+        display: none;
+    }
+
+    @include tablet-laptop {
+        display: none;
+    }
 }

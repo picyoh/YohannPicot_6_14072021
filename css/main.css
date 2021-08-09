@@ -23,17 +23,6 @@ header {
           align-items: center;
 }
 
-@media (max-width: 480px) {
-  header {
-    width: 100%;
-    height: 100%;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-  }
-}
-
 header .logo {
   cursor: pointer;
   display: -webkit-box;
@@ -65,6 +54,22 @@ header nav {
   -webkit-box-flex: 60%;
       -ms-flex: 60%;
           flex: 60%;
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  header nav {
+    -webkit-box-flex: 100%;
+        -ms-flex: 100%;
+            flex: 100%;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1480px) {
+  header nav {
+    -webkit-box-flex: 100%;
+        -ms-flex: 100%;
+            flex: 100%;
+  }
 }
 
 header .tags {
@@ -102,6 +107,24 @@ header .tags__border__text:hover {
   }
 }
 
+@media (min-width: 481px) and (max-width: 768px) {
+  header .tags {
+    height: auto;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  header .tags {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+  }
+}
+
 header .linkMain {
   height: 100px;
   position: absolute;
@@ -125,6 +148,51 @@ header .linkMain:hover {
   top: 8px;
 }
 
+@media (max-width: 480px) {
+  header {
+    width: 100%;
+    height: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  header {
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  header {
+    width: 100%;
+    height: auto;
+    margin-bottom: 3%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1480px) {
+  header {
+    width: 100%;
+    height: auto;
+    margin-bottom: 3%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+  }
+}
+
 main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -139,7 +207,7 @@ main {
 }
 
 main h1 {
-  font-size: 2.5em;
+  font-size: 2.3em;
   font-weight: 300;
   position: absolute;
   top: 0;
@@ -235,7 +303,7 @@ button {
 }
 
 .photographerCard__link__name {
-  font-size: 2.5em;
+  font-size: 2.3em;
   font-weight: 300;
   color: #D3573C;
   margin: 0;
@@ -393,6 +461,42 @@ button {
   }
 }
 
+@media (min-width: 481px) and (max-width: 768px) {
+  .banner {
+    margin-bottom: 5vh;
+  }
+  .banner button {
+    width: 18vw;
+    position: relative;
+    right: 5%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .banner {
+    max-height: 18vh;
+    margin-bottom: 2vh;
+  }
+  .banner button {
+    width: 18vw;
+    position: relative;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1480px) {
+  .banner {
+    height: auto;
+  }
+  .banner__tagline {
+    margin: 0;
+    white-space: pre-line;
+    max-width: 70%;
+  }
+  .banner button {
+    width: 18vw;
+  }
+}
+
 .additional {
   cursor: default;
   position: fixed;
@@ -421,6 +525,18 @@ button {
 }
 
 @media (max-width: 480px) {
+  .additional {
+    display: none;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .additional {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
   .additional {
     display: none;
   }
@@ -502,6 +618,12 @@ button {
   }
 }
 
+@media (min-width: 1024px) and (max-width: 1480px) {
+  .mediaCard__container {
+    width: 28vw;
+  }
+}
+
 .selectMenu {
   width: 100%;
   height: 6vh;
@@ -577,6 +699,18 @@ button {
 }
 
 @media (max-width: 480px) {
+  .selectMenu {
+    display: none;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .selectMenu {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
   .selectMenu {
     display: none;
   }

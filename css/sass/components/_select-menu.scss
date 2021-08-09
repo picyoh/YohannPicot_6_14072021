@@ -72,4 +72,12 @@
     @include phone-only{
         display: none;
     }
+
+    @include phone-tablet{
+        display: none;
+    }
+
+    @include tablet-laptop{
+        display: none;
+    }
 }

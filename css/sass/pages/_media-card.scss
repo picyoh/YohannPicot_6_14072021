@@ -51,4 +51,11 @@
             font-size: 1em;
         }
     }
+
+    @include laptop {
+        &__container {
+            width: 28vw;
+        }
+
+    }
 }

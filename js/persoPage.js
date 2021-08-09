@@ -42,12 +42,13 @@ function createPersonalPage(photographers, medias){
         photographerCard[i].children[0].addEventListener('click', (event) => {
             
             event.stopPropagation();
-
-            // remove title & nav
+            // remove linkMain
+            // remove title & nav &  linkMain
             let title = document.querySelector('h1');
             document.querySelector('main').removeChild(title);
+            linkMainTag = document.querySelector('.linkMain');
             document.querySelector('header').removeChild(nav);
-
+            document.querySelector('header').removeChild(linkMainTag);
             removeContent();
             
             let picturesNumber = 0;

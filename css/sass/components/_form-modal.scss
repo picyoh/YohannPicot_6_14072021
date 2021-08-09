@@ -82,5 +82,7 @@
         }
     }
 
-    @include tablet
+    @include phone-tablet {
+        
+    }
 }

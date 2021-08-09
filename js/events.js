@@ -2,19 +2,15 @@
 
 // reload page on logo click
 document.querySelector('.logo').addEventListener('click',(e)=>{
-    window.location.reload();
+    window.location.assign('');
 });
 
 // reload when hash is undefined
 window.addEventListener('hashchange', (e)=>{
     if(window.location.hash == ''){
-        window.location.reload();
+        window.location.assign('');
     }
 });
-
-//keyboard events
-// leftKey.addEventListener('keydown', lightboxControls());
-// rightKey.addEventListener('keydown', lightboxControls());
 
 // listen personal page
 function listenPersonalPage(){

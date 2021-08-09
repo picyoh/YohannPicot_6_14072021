@@ -52,7 +52,6 @@ function addTagsNav(tagList){
     `;
 
     nav.insertAdjacentHTML('afterbegin', tagsInNav);
-
 }
 
 // listen main page
