@@ -67,7 +67,6 @@ function listenPersonalPage(){
 }
 
 function sortingMedias(selectedFilter){
-    console.log(selectedFilter);
     switch(selectedFilter){
         case 'Titre':
             for(obj of mediasArray){
@@ -110,13 +109,11 @@ function sortingMedias(selectedFilter){
 
 function lightboxControls(indexMedia){
     
-    console.log(indexMedia);
     let maxArray = mediasArray.length;
     
     // keyboards events
 
     window.addEventListener('keyup', (e)=> {
-        console.log(e)
         getKeyboardCode(e);
     });
 
@@ -159,7 +156,6 @@ function lightboxControls(indexMedia){
 }
 
 function switchImages(indexMedia){
-    console.log(indexMedia);
     // remove media
     let container = document.querySelector('.lightbox-modal__container');
     let image = container.children[0];

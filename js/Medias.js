@@ -61,6 +61,6 @@ class Medias{
             </div>
         </div>
         `;
-        document.querySelector('.wrapper').insertAdjacentHTML('afterend', lightboxMarkup);
+        document.querySelector('body').insertAdjacentHTML('beforeend', lightboxMarkup);
     }
 }

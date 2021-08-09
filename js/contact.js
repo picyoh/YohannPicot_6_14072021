@@ -18,7 +18,7 @@ function createFormModal(phName){
     </div>
     `;
 
-    document.querySelector('.wrapper').insertAdjacentHTML('afterend', formModal);
+    document.querySelector('body').insertAdjacentHTML('beforeend', formModal);
     checkContact();
 }
 
