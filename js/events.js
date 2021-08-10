@@ -122,7 +122,7 @@ function lightboxControls(indexMedia){
         ? movingLeft()
         : (e.key == 'ArrowRight')
             ? movingRight()
-            : console.log('error');
+            :'';
     }
 
     // click events
@@ -187,7 +187,8 @@ function closeModal(){
     let modalTag = document.querySelector('.modal');
     let closeModalTag = document.querySelector('.closeModal');
     
-        closeModalTag.addEventListener('click', (e) => {
-            document.querySelector('body').removeChild(modalTag);
+    closeModalTag.addEventListener('click', (e) => {
+        document.querySelector('body').style= '';
+        document.querySelector('body').removeChild(modalTag);
     });
 }

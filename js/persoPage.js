@@ -18,13 +18,15 @@ function createSelectMenu(selectedFilter){
     const selectMenuMarkup = `
             <span class="selectMenu">
                 <p>Trier par</p>
-                <button>
+                <button aria-haspopup="listbox"
+                aria-labelledby="selectMenu__filters selectMenu__button"
+                id="selectMenu__button">
                     <ul>
                         <li>
-                            <a class="selectMenu__filters" id="selectedFilter">${selectedFilter}<i class="fas fa-angle-down"></i></a>
+                            <a class="selectMenu__filters" id="selectedFilter" role="option">${selectedFilter}<i class="fas fa-angle-down"></i></a>
                         <ul>
-                            <li><a class="selectMenu__filters">${filters[0]}</a></li>
-                            <li><a class="selectMenu__filters">${filters[1]}</a></li>
+                            <li><a class="selectMenu__filters" role="option">${filters[0]}</a></li>
+                            <li><a class="selectMenu__filters" role="option">${filters[1]}</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -42,7 +44,6 @@ function createPersonalPage(photographers, medias){
         photographerCard[i].children[0].addEventListener('click', (event) => {
             
             event.stopPropagation();
-            // remove linkMain
             // remove title & nav &  linkMain
             let title = document.querySelector('h1');
             document.querySelector('main').removeChild(title);

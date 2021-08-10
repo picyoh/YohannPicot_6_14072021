@@ -62,5 +62,8 @@ class Medias{
         </div>
         `;
         document.querySelector('body').insertAdjacentHTML('beforeend', lightboxMarkup);
+        
+        // stop scroll
+        document.querySelector('body').style.overflow = "hidden";
     }
 }
