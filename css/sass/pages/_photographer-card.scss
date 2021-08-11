@@ -48,4 +48,17 @@
             padding: 0;
         }
     }
+
+    @include phone-tablet {
+        flex-flow: column wrap;
+        flex: 51%;
+    }
+
+    @include tablet-laptop {
+        flex: 50%;
+    }
+
+    @include laptop {
+        flex: 50%;
+    }
 }
