@@ -1,8 +1,9 @@
 .banner {
     width: 100%;
-    max-height: 25vh;
+    height: 100%;
     display: flex;
     flex-flow: column wrap;
+    align-items: flex-start;
     background-color: $color-lightgrey;
     margin: 0 4%;
     padding: 3%;
@@ -12,10 +13,13 @@
         color: $color-secondary;
         margin: 0;
         right: auto;
+        flex: 25%;
 
     }
     
     button{
+        position: fixed;
+        align-self: center;
         &:hover{
             background-color: $color-secondary;
             color: black;
@@ -25,16 +29,20 @@
     &__loca {
         @include font-medium;
         color: $color-primary;
+        flex: 25%;
     }
 
     &__tagline {
         color: black;
-
+        font-size: 0.8em;
+        font-weight: 400;
+        flex: 25%;
     }
 
     .tags {
         padding: 0;
         justify-content: flex-start;
+        flex: 25%;
     }
 
     &__container {
@@ -43,6 +51,7 @@
         overflow: hidden;
         border-radius: 50%;
         align-self: flex-end;
+        position: fixed;
 
         &__img {
             width: 100%;
@@ -51,16 +60,14 @@
             
         }
     }
+
     @include phone-only {
         background-color: transparent;
-        flex-flow: column wrap;
-        width: 100%;
-        max-height: 100%;
-
+        
         h1 {
-                font-size: 2.5em;
-                white-space: pre-line;
-                max-width: 70%;
+            font-size: 2.5em;
+            white-space: pre-line;
+            max-width: 70%;
         }
 
         button {
@@ -71,15 +78,17 @@
             bottom: 2vh;
             left: 30vw;
         }
+
         &__loca{
-            margin: 0.3em;
             font-size: 0.8em;
         }
+
         &__tagline {
             margin: 0;
             white-space: pre-line;
             max-width: 70%;
         }
+
         &__container {
             width: 100px;
             height: 100px;
@@ -90,25 +99,26 @@
     
     @include phone-tablet{
         margin-bottom: 5vh;
+        
         button{
-            width: 18vw;
-            position: relative;
-            right: 5%;
+            position: fixed;
+            z-index: 2;
+            width: auto;
+            padding: 0.5em 1em;
+            bottom: 2vh;
+            left: 40%;
         }
     }
 
     @include tablet-laptop {
-        max-height: 18vh;
         margin-bottom: 2vh;
 
         button {
             width: 18vw;
-            position: relative;
         }
     }
 
     @include laptop {
-        height: auto;
 
         &__tagline {
             margin: 0;

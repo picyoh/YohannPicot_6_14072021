@@ -3,23 +3,24 @@ const cards = document.querySelector('.cards');
 
 // request JSON
 
-const requestURL = 'json/FishEyeData.json';
-const request = new XMLHttpRequest();
-
-request.open('GET', requestURL);
-request.responseType = 'json';
-request.send();
-
-request.onload = function(){
-    // get Json
-    const fullJson = request.response;
-    // get photographers from jsonObj
-    const photographers = fullJson['photographers'];
-    const medias = fullJson['media'];
-    
-    populatePhotographers(photographers);
-    createPersonalPage(photographers, medias);
+function loadJson(){
+    fetch('json/FishEyeData.json')
+    .then(response => response.json())
+    .then((response) => {
+        // get Json
+        const fullJson = response;
+        console.log(fullJson);
+        // get photographers from jsonObj
+        const photographers = fullJson['photographers'];
+        const medias = fullJson['media'];
+        
+        populatePhotographers(photographers);
+        createPersonalPage(photographers, medias);
+    })
+    .catch(error => console.log('erreur json' + error));
 }
+
+loadJson();
 
 function removeContent(){
 
