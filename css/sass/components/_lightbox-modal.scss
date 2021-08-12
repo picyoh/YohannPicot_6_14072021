@@ -57,7 +57,7 @@
     }
 
     @include phone-only {
-        &__chevron{
+        &__chevron {
             padding-top: 50%;
             i {
                 font-size: 1em;
@@ -87,5 +87,16 @@
             }
         }
         
+    }
+
+    @include phone-tablet {
+        &__container {
+            width: 600px;
+            height: 600px;
+        }
+
+        &__title {
+            
+        }
     }
 }

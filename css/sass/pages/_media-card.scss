@@ -5,6 +5,8 @@
     &__container {
         cursor: pointer;
         overflow: hidden;
+        border-radius: 0.3em;
+        box-shadow: 3px 1px 1px rgba($color-grey, 0.1);
         width: 480px;
         height: 400px;
         &__img {
