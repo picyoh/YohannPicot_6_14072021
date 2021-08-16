@@ -56,7 +56,7 @@ function listenPersonalPage(){
                 let media = mediasArray[indexMedia];
                 let comparedMediaTitle = mediasArray[indexMedia].title;
                 if (mediaTitle == comparedMediaTitle){
-                    let lightBoxImg = new Medias(media.date, media.id, media.image, media.video,media.likes, media.photographerId, media.price, media.tags, media.title);
+                    let lightBoxImg = new Medias(media.date, media.id, media.image, media.video,media.likes, media.photographerId, media.price, media.tags, media.title, media.alt);
                     lightBoxImg.createLightbox(eventFirstname);
                     lightboxControls(indexMedia); 
                     closeModal();
@@ -100,7 +100,7 @@ function sortingMedias(selectedFilter){
     // createMedias wth mediasArray
     for(index in mediasArray){
         let media = mediasArray[index];
-        let newMedias = new Medias(media.date, media.id, media.image, media.video,media.likes, media.photographerId, media.price, media.tags, media.title);
+        let newMedias = new Medias(media.date, media.id, media.image, media.video,media.likes, media.photographerId, media.price, media.tags, media.title, meddia.alt);
         newMedias.createCard(eventFirstname);
     }
 
@@ -189,6 +189,7 @@ function closeModal(){
     
     closeModalTag.addEventListener('click', (e) => {
         document.querySelector('body').style= '';
+        document.querySelector('main').setAttribute('aria-hidden', 'false');
         document.querySelector('body').removeChild(modalTag);
     });
 }

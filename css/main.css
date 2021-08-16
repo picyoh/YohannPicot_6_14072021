@@ -1039,7 +1039,7 @@ input:invalid {
      object-position: top;
 }
 
-.lightbox-modal p {
+.lightbox-modal__title {
   -ms-flex-preferred-size: 60%;
       flex-basis: 60%;
   color: #901C1C;
@@ -1093,8 +1093,58 @@ input:invalid {
 
 @media (min-width: 481px) and (max-width: 768px) {
   .lightbox-modal__container {
+    width: 360px;
+    height: 360px;
+  }
+  .lightbox-modal__title {
+    margin: 0;
+    -ms-flex-preferred-size: 78%;
+        flex-basis: 78%;
+    padding-left: 0;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
+  .lightbox-modal .closeModal {
+    top: 11%;
+    right: 3%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .lightbox-modal__container {
     width: 600px;
     height: 600px;
+  }
+  .lightbox-modal__title {
+    margin: 0;
+    -ms-flex-preferred-size: 78%;
+        flex-basis: 78%;
+    padding-left: 0;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
+  .lightbox-modal .closeModal {
+    top: 14%;
+    right: 5%;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1480px) {
+  .lightbox-modal__container {
+    width: 720px;
+    height: 720px;
+  }
+  .lightbox-modal__title {
+    margin: 0;
+    -ms-flex-preferred-size: 67%;
+        flex-basis: 67%;
+    padding-left: 0;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
+  .lightbox-modal .closeModal {
+    top: 5%;
+    right: 10%;
   }
 }
 /*# sourceMappingURL=main.css.map */

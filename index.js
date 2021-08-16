@@ -9,13 +9,13 @@ function loadJson(){
     .then((response) => {
         // get Json
         const fullJson = response;
-        console.log(fullJson);
         // get photographers from jsonObj
         const photographers = fullJson['photographers'];
         const medias = fullJson['media'];
         
         populatePhotographers(photographers);
         createPersonalPage(photographers, medias);
+        accesKeys();
     })
     .catch(error => console.log('erreur json' + error));
 }

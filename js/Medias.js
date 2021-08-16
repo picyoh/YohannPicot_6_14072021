@@ -1,5 +1,5 @@
 class Medias{
-    constructor(date, id, image, video, likes, photographerId, price, tags, title){
+    constructor(date, id, image, video, likes, photographerId, price, tags, title, alt){
         this.date = date;
         this.id = id;
         this.image = image;
@@ -9,6 +9,7 @@ class Medias{
         this.price = price;
         this.tags = tags;
         this.title = title;
+        this.alt = alt;
     }
 
     createCard(eventFirstname){
@@ -22,7 +23,10 @@ class Medias{
                         src="FishEye_Photos/Sample_Photos/${eventFirstname}/${this.video}#t=0.1" type="video/mp4">
                     </video>` 
                 : `<img class="mediaCard__container__img" 
-                        src="FishEye_Photos/Sample_Photos/${eventFirstname}/${this.image}">`
+                        src="FishEye_Photos/Sample_Photos/${eventFirstname}/${this.image}"
+                        alt="${this.alt}"
+                        tabindex="0"
+                        role="button">`
             }
             </div>
             <span class="mediaCard__title">
@@ -36,11 +40,13 @@ class Medias{
     }
 
     createLightbox(eventFirstname){
-        
+
+        document.querySelector('main').setAttribute('aria-hidden', 'true');
+
         const lightboxMarkup = `
-        <div class="modal">
+        <div class="modal" role="dialog" aria-describedby="lightbox-modal__title">
             <div class="lightbox-modal">
-                <a class="lightbox-modal__chevron">
+                <a class="lightbox-modal__chevron" tabindex="0" role="button">
                     <i id="left" class="fas fa-chevron-left"></i>
                 </a>
                 <div class="lightbox-modal__container">
@@ -50,10 +56,12 @@ class Medias{
                                 src="FishEye_Photos/Sample_Photos/${eventFirstname}/${this.video}" type="video/mp4">
                             </video>` 
                         : `<img class="lightbox-modal__container__img" 
-                                src="FishEye_Photos/Sample_Photos/${eventFirstname}/${this.image}">`
+                                src="FishEye_Photos/Sample_Photos/${eventFirstname}/${this.image}"
+                                alt="${this.alt}"
+                                tabindex="0">`
                     }
                 </div>
-                <a class="lightbox-modal__chevron">
+                <a class="lightbox-modal__chevron" tabindex="0" role="button">
                     <i id="right" class="fas fa-chevron-right"></i>
                 </a>
                 <p class="lightbox-modal__title">${this.title}</p>

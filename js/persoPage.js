@@ -76,7 +76,7 @@ function createPersonalPage(photographers, medias){
 
                 // sorts medias / id
                 if(mediaPhotographerId == eventId){
-                    let newMedias = new Medias(media.date, media.id, media.image, media.video,media.likes, media.photographerId, media.price, media.tags, media.title);
+                    let newMedias = new Medias(media.date, media.id, media.image, media.video,media.likes, media.photographerId, media.price, media.tags, media.title, media.alt);
                     newMedias.createCard(eventFirstname);
 
                     // set mediasArray
@@ -88,7 +88,7 @@ function createPersonalPage(photographers, medias){
                 }
             }
 
-            let newBanner = new Photographer(photographers[i].name, photographers[i].id, photographers[i].city, photographers[i].country, photographers[i].tags, photographers[i].tagline, photographers[i].price, photographers[i].portrait); 
+            let newBanner = new Photographer(photographers[i].name, photographers[i].id, photographers[i].city, photographers[i].country, photographers[i].tags, photographers[i].tagline, photographers[i].price, photographers[i].portrait, photographers[i].alt); 
             newBanner.createBanner(picturesNumber, nLikes);
             listenPersonalPage();
         });

@@ -40,7 +40,7 @@
         }
     }
 
-    p{
+    &__title {
         flex-basis: 60%;
         color: $color-primary;
         font-size: 1.3em;
@@ -91,12 +91,58 @@
 
     @include phone-tablet {
         &__container {
+            width: 360px;
+            height: 360px;
+        }
+
+        &__title {
+            margin: 0;
+            flex-basis: 78%;
+            padding-left: 0;
+            align-self: flex-start;
+        }
+
+        .closeModal {
+            top: 11%;
+            right: 3%;
+        }
+    }
+
+    @include tablet-laptop {
+        &__container {
             width: 600px;
             height: 600px;
         }
 
         &__title {
-            
+            margin: 0;
+            flex-basis: 78%;
+            padding-left: 0;
+            align-self: flex-start;
+        }
+
+        .closeModal {
+            top: 14%;
+            right: 5%;
+        }
+    }
+
+    @include laptop {
+        &__container {
+            width: 720px;
+            height: 720px;
+        }
+
+        &__title {
+            margin: 0;
+            flex-basis: 67%;
+            padding-left: 0;
+            align-self: flex-start;
+        }
+
+        .closeModal {
+            top: 5%;
+            right: 10%;
         }
     }
 }

@@ -20,7 +20,7 @@ function populatePhotographers(photographers, clickedTag){
         }
 
         if(tagExist){
-            let newPhotographer = new Photographer(photograph.name, photograph.id, photograph.city, photograph.country, photograph.tags, photograph.tagline, photograph.price, photograph.portrait);
+            let newPhotographer = new Photographer(photograph.name, photograph.id, photograph.city, photograph.country, photograph.tags, photograph.tagline, photograph.price, photograph.portrait, photograph.alt);
             newPhotographer.createCard();
         } 
         
@@ -45,7 +45,7 @@ function addTagsNav(tagList){
         <ul class="tags">
         ${tagList.map(tag => `
         <li class="tags__border">
-            <a class="tags__border__text" href="#${tag}">#${tag}</a>
+            <a class="tags__border__text" href="#${tag}" tabindex="0" role="button">#${tag}</a>
         </li>
       `).join('')}
         </ul>

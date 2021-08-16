@@ -1,5 +1,5 @@
 class Photographer{
-    constructor(name, id, city, country, tags, tagline, price, portrait){
+    constructor(name, id, city, country, tags, tagline, price, portrait, alt){
         this.name = name;
         this.id = id;
         this.city = city;
@@ -8,15 +8,17 @@ class Photographer{
         this.tagline = tagline;
         this.price = price;
         this.portrait = portrait;
+        this.alt = alt;
     }
     
     createCard(){
         const card = `
         <div id= "${this.id}" class="photographerCard" name="${this.name}">
-            <a class="photographerCard__link" href="#${this.name.replace(' ', '_')}">
+            <a class="photographerCard__link" href="#${this.name.replace(' ', '_')}" tabindex="0" role="button">
                 <div class="photographerCard__link__container">
                     <img class="photographerCard__link__container__img" 
-                    src="FishEye_Photos/Sample_Photos/Photographers ID Photos/${this.portrait}">
+                    src="FishEye_Photos/Sample_Photos/Photographers ID Photos/${this.portrait}"
+                    alt="${this.alt}">
                 </div>
                 <h2 class="photographerCard__link__name">${this.name}</h2>
             </a>
@@ -38,7 +40,7 @@ class Photographer{
     createBanner(pictureNumbers, nLikes){
 
         const banner = `
-        <div class="banner">
+        <div class="banner" role=""banner">
             <h1>${this.name}</h1>
             <p class="banner__loca">${this.city}, ${this.country}</p>
             <p class="banner__tagline">${this.tagline}</p>
@@ -52,7 +54,8 @@ class Photographer{
             <button class="contactButton">Contactez-moi</button>
             <div class="banner__container">
                 <img class="banner__container__img"
-                src="FishEye_Photos/Sample_Photos/Photographers ID Photos/${this.portrait}">
+                src="FishEye_Photos/Sample_Photos/Photographers ID Photos/${this.portrait}"
+                alt="${this.alt}">
             </div>
         </div>
         `;
