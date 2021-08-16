@@ -16,7 +16,7 @@ class Medias{
 
         const card = `
         <a class=mediaCard>
-            <div class="mediaCard__container">
+            <div class="mediaCard__container" tabindex="0" role="button">
             ${(this.image == undefined) 
                 ? `<video class="mediaCard__container__img" preload="metadata">
                     <source 
@@ -25,8 +25,7 @@ class Medias{
                 : `<img class="mediaCard__container__img" 
                         src="FishEye_Photos/Sample_Photos/${eventFirstname}/${this.image}"
                         alt="${this.alt}"
-                        tabindex="0"
-                        role="button">`
+                        >`
             }
             </div>
             <span class="mediaCard__title">
@@ -49,7 +48,7 @@ class Medias{
                 <a class="lightbox-modal__chevron" tabindex="0" role="button">
                     <i id="left" class="fas fa-chevron-left"></i>
                 </a>
-                <div class="lightbox-modal__container">
+                <div class="lightbox-modal__container" tabindex="0" role="button">
                     ${(this.image == undefined) 
                         ? `<video class="lightbox-modal__container__img" preload="metadata" controls>
                             <source 
@@ -57,8 +56,7 @@ class Medias{
                             </video>` 
                         : `<img class="lightbox-modal__container__img" 
                                 src="FishEye_Photos/Sample_Photos/${eventFirstname}/${this.image}"
-                                alt="${this.alt}"
-                                tabindex="0">`
+                                alt="${this.alt}">`
                     }
                 </div>
                 <a class="lightbox-modal__chevron" tabindex="0" role="button">
@@ -70,7 +68,7 @@ class Medias{
         </div>
         `;
         document.querySelector('body').insertAdjacentHTML('beforeend', lightboxMarkup);
-        
+        accesKeys();
         // stop scroll
         document.querySelector('body').style.overflow = "hidden";
     }

@@ -27,9 +27,9 @@ class Photographer{
             <p class="photographerCard__price">${this.price}€/jour</p>
             <ul class="tags">
             ${this.tags.map(tag => `
-            <a class="tags__border">
-            <li class="tags__border__text">#${tag}</li>
-            </a>
+            <li class="tags__border">
+                <a class="tags__border__text">#${tag}</a>
+            </li>
           `).join('')}
             </ul>
         </div>
@@ -40,15 +40,15 @@ class Photographer{
     createBanner(pictureNumbers, nLikes){
 
         const banner = `
-        <div class="banner" role=""banner">
-            <h1>${this.name}</h1>
+        <div class="banner" role="banner">
+            <h1 role="button" tabindex="0">${this.name}</h1>
             <p class="banner__loca">${this.city}, ${this.country}</p>
             <p class="banner__tagline">${this.tagline}</p>
             <ul class="tags">
             ${this.tags.map(tag => `
-            <a class="tags__border">
-            <li class="tags__border__text">#${tag}</li>
-            </a>
+                <li class="tags__border">
+                    <a class="tags__border__text">#${tag}</a>
+                </li>
           `).join('')}
             </ul>
             <button class="contactButton">Contactez-moi</button>

@@ -21,7 +21,7 @@
             background-color: $color-primary;
             
             li{
-                &:hover{
+                &:hover, &:focus{
                     i:before{
                         content:'\f106';
                     }

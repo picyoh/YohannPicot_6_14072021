@@ -345,6 +345,10 @@ button {
   background-color: #901C1C;
 }
 
+*:focus {
+  border: 2px dashed #901C1C;
+}
+
 .photographerCard {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -708,6 +712,10 @@ button {
      object-fit: cover;
 }
 
+.mediaCard__container:focus {
+  border: 3px solid #901C1C;
+}
+
 .mediaCard__title {
   color: #901C1C;
   font-size: 1.3em;
@@ -787,11 +795,11 @@ button {
   background-color: #901C1C;
 }
 
-.selectMenu button ul li:hover i:before {
+.selectMenu button ul li:hover i:before, .selectMenu button ul li:focus i:before {
   content: '\f106';
 }
 
-.selectMenu button ul li:hover ul {
+.selectMenu button ul li:hover ul, .selectMenu button ul li:focus ul {
   display: block;
 }
 

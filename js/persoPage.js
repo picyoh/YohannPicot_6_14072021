@@ -19,12 +19,12 @@ function createSelectMenu(selectedFilter){
             <span class="selectMenu">
                 <p>Trier par</p>
                 <button aria-haspopup="listbox"
-                aria-labelledby="selectMenu__filters selectMenu__button"
+                aria-labelledby="selectMenu__filters selectMenu__button"     
                 id="selectMenu__button">
-                    <ul>
+                    <ul >
                         <li>
-                            <a class="selectMenu__filters" id="selectedFilter" role="option">${selectedFilter}<i class="fas fa-angle-down"></i></a>
-                        <ul>
+                            <a class="selectMenu__filters" id="selectedFilter" role="listbox" tabindex="0" aria-activedescendant="selectMenu__filters">${selectedFilter}<i class="fas fa-angle-down"></i></a>
+                        <ul tabindex="-1" role="listbox" aria-labelledby="selectMenu">
                             <li><a class="selectMenu__filters" role="option">${filters[0]}</a></li>
                             <li><a class="selectMenu__filters" role="option">${filters[1]}</a></li>
                         </ul>

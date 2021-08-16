@@ -40,6 +40,7 @@ function checkContact(){
         }
         
         e.preventDefault();
+        accesKeys();
         closeModal();
     });
 

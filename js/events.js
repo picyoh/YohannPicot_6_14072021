@@ -100,7 +100,7 @@ function sortingMedias(selectedFilter){
     // createMedias wth mediasArray
     for(index in mediasArray){
         let media = mediasArray[index];
-        let newMedias = new Medias(media.date, media.id, media.image, media.video,media.likes, media.photographerId, media.price, media.tags, media.title, meddia.alt);
+        let newMedias = new Medias(media.date, media.id, media.image, media.video,media.likes, media.photographerId, media.price, media.tags, media.title, media.alt);
         newMedias.createCard(eventFirstname);
     }
 
@@ -122,7 +122,9 @@ function lightboxControls(indexMedia){
         ? movingLeft()
         : (e.key == 'ArrowRight')
             ? movingRight()
-            :'';
+            :(e.key == 'Escape')
+            ? document.querySelector('.closeModal').click()
+            : e.key;
     }
 
     // click events
@@ -191,5 +193,6 @@ function closeModal(){
         document.querySelector('body').style= '';
         document.querySelector('main').setAttribute('aria-hidden', 'false');
         document.querySelector('body').removeChild(modalTag);
+        accesKeys();
     });
 }
