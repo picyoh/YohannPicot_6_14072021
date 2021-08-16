@@ -193,6 +193,5 @@ function closeModal(){
         document.querySelector('body').style= '';
         document.querySelector('main').setAttribute('aria-hidden', 'false');
         document.querySelector('body').removeChild(modalTag);
-        accesKeys();
     });
 }

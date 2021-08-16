@@ -13,8 +13,10 @@ function accesKeys(){
                     document.activeElement.click();
                     break;
                 case 'Escape':
-                    e.preventDefault();
+                    if(document.querySelector('main').children[0].textContent == "Nos photographes"){
+                        e.preventDefault();
                     document.querySelector('.logo').click();
+                    }
                     break;
             }
         }
