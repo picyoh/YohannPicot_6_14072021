@@ -49,8 +49,8 @@
     }
 
     .closeModal{
-        top: 8%;
-        right: 24%;
+        // top: 8%;
+        // right: 24%;
         &:before, &:after{
             background-color: $color-primary;
         }
@@ -79,8 +79,8 @@
         .closeModal {
             height:20px;
             width: 20px;
-            top: 28%;
-            right: 4%;
+            // top: 28%;
+            // right: 4%;
 
             &:before, &:after{
             height: 2px;
@@ -122,8 +122,8 @@
         }
 
         .closeModal {
-            top: 14%;
-            right: 5%;
+            // top: 14%;
+            // right: 5%;
         }
     }
 
@@ -141,8 +141,8 @@
         }
 
         .closeModal {
-            top: 5%;
-            right: 10%;
+            // top: 5%;
+            // right: 10%;
         }
     }
 }

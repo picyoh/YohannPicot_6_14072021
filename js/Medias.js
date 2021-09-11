@@ -30,7 +30,7 @@ class Medias{
             </div>
             <span class="mediaCard__title">
                 <p>${this.title}</p>
-                <div class="likes"><p>${this.likes}</p><i class="fas fa-heart"></i></div>
+                <div class="likes"><p>${this.likes}</p><span class="fas fa-heart" role="presentation"></i></div>
             </span>
         </a>
         `;
@@ -46,7 +46,7 @@ class Medias{
         <div class="modal" role="dialog" aria-describedby="lightbox-modal__title">
             <div class="lightbox-modal">
                 <a class="lightbox-modal__chevron" tabindex="0" role="button">
-                    <i id="left" class="fas fa-chevron-left"></i>
+                    <span id="left" class="fas fa-chevron-left" role="presentation"></i>
                 </a>
                 <div class="lightbox-modal__container" tabindex="0" role="button">
                     ${(this.image == undefined) 
@@ -60,7 +60,7 @@ class Medias{
                     }
                 </div>
                 <a class="lightbox-modal__chevron" tabindex="0" role="button">
-                    <i id="right" class="fas fa-chevron-right"></i>
+                    <span id="right" class="fas fa-chevron-right" role="presentation"></i>
                 </a>
                 <p class="lightbox-modal__title">${this.title}</p>
                 <div class="closeModal"></div>

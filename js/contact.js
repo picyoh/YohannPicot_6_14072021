@@ -3,7 +3,7 @@ function createFormModal(phName){
     
     const formModal = `
     <div class="modal" role="dialog" aria-describedby="">
-        <form method="post" action="" class="form-modal">
+        <form method="post" action="" class="form-modal" role="group">
             <h1>Contactez-moi <br>${phName}</h1>
             <label for="firstName">Prénom</label>
             <input type="text" id="firstName" minlength="2" maxlength="20" aria-labelledby="prenom" aria-describedby="entrez votre prénom" required>

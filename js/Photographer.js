@@ -22,12 +22,12 @@ class Photographer{
                 </div>
                 <h2 class="photographerCard__link__name">${this.name}</h2>
             </a>
-            <p class="photographerCard__loca">${this.city}, ${this.country}</p>
-            <p class="photographerCard__tagline">${this.tagline}</p>
-            <p class="photographerCard__price">${this.price}€/jour</p>
-            <ul class="tags">
+            <p class="photographerCard__loca" tabindex="-1">${this.city}, ${this.country}</p>
+            <p class="photographerCard__tagline" tabindex="-1">${this.tagline}</p>
+            <p class="photographerCard__price" tabindex="-1">${this.price}€/jour</p>
+            <ul class="tags" tabindex="-1">
             ${this.tags.map(tag => `
-            <li class="tags__border">
+            <li class="tags__border" tabindex="-1">
                 <a class="tags__border__text">#${tag}</a>
             </li>
           `).join('')}
@@ -63,10 +63,10 @@ class Photographer{
 
         const additional= `
         <div class="additional">
-            <p>${pictureNumbers}<i class="far fa-image"></i></p>
+            <p>${pictureNumbers}<span class="far fa-image" role="presentation"></i></p>
             <span>
                 <p class="totalLikes">${nLikes}</p>
-                <i class="fas fa-heart"></i>
+                <span class="fas fa-heart" role="presentation"></i>
             </span> 
             <p>${this.price}€/jour</p>
             </div>
