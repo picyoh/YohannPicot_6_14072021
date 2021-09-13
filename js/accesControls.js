@@ -8,8 +8,6 @@ function accesKeys(){
     });
 
         function getAccesCode(e){
-            let tabs = document.querySelectorAll('');
-            console.log(tabs);
             switch(e.key) {
                 case 'Enter':
                     e.preventDefault();
