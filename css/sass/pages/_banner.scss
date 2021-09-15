@@ -133,6 +133,7 @@
 }
 
 //additional infos in perso page 
+
 .additional {
     cursor: default;
     position: fixed;
@@ -141,15 +142,12 @@
     width: 25vw;
     border-radius: 0.3em;
     background-color: $color-secondary;
-    display: flex;
+    display: inline-flex;
     justify-content: space-around;
     
     span {
-        display: flex;
-        
-        i {
-            align-self: center;
-        }
+        display: inline-flex;
+        align-self: center;
     }
 
     @include phone-only {

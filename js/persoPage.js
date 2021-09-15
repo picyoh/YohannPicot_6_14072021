@@ -16,23 +16,26 @@ function createSelectMenu(selectedFilter){
     filters = filters.filter(item => item !== selectedFilter);
     
     const selectMenuMarkup = `
-            <span class="selectMenu">
-                <p>Trier par</p>
-                <button aria-haspopup="listbox"
-                aria-labelledby="selectMenu__filters selectMenu__button"     
-                class="selectMenu__button">
-                    <ul >
-                        <li>
-                            <a class="selectMenu__filters" id="selectedFilter" role="listbox" tabindex="0" aria-activedescendant="selectMenu__filters">${selectedFilter}<span class="fas fa-angle-down" role="presentation"></i></a>
-                        <ul tabindex="-1" role="listbox" aria-labelledby="selectMenu">
-                            <li><a class="selectMenu__filters" role="option">${filters[0]}</a></li>
-                            <li><a class="selectMenu__filters" role="option">${filters[1]}</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                </button>
-            </span>
-            `;
+        <span class="selectMenu">
+            <p id="selectMenu">Trier par</p>
+            <button aria-haspopup="listbox"
+            aria-labelledby="selectMenu"     
+            class="selectMenu__button">
+                <ul role="listbox">
+                    <li>
+                        <a class="selectMenu__filters" id="selectedFilter" role="listbox" tabindex="0" 
+                        aria-activedescendant="selectMenu__filters">${selectedFilter}
+                        <span class="fas fa-angle-down" role="presentation"></i></a>
+                    <ul tabindex="-1" aria-labelledby="selectMenu">
+                        <li><a class="selectMenu__filters" role="option">${filters[0]}</a></li>
+                        <li><a class="selectMenu__filters" role="option">${filters[1]}</a></li>
+                    </ul>
+                </li>
+            </ul>
+            </button>
+        </span>
+
+        `;
     cards.insertAdjacentHTML('beforebegin', selectMenuMarkup);
 }
 

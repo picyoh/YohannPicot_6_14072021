@@ -62,15 +62,15 @@ class Photographer{
         document.querySelector('main').insertAdjacentHTML('afterbegin', banner);
 
         const additional= `
-        <div class="additional">
+        <span class="additional">
             <p>${pictureNumbers}<span class="far fa-image" role="presentation"></i></p>
             <span>
                 <p class="totalLikes">${nLikes}</p>
-                <span class="fas fa-heart" role="presentation"></i>
+                <span class="fas fa-heart" role="presentation">
             </span> 
+            </span>
             <p>${this.price}€/jour</p>
-            </div>
-        </div>
+        </span>
         `;
         cards.insertAdjacentHTML('beforeend', additional);
     }
